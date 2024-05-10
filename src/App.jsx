@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div>The great and only Adoption Center</div>
+      <div>Try to commit to orgnaizations repo</div>
     </>
   )
 }
