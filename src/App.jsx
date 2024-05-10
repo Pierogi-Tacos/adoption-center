@@ -14,13 +14,29 @@ function App() {
     })
     .catch(error => {
       console.log("error", error);
-    
-
   })}, []);
+
+  function handleClick() {
+
+    const testObject ={
+      name: "test",
+      password: "fjkefk",
+    }
+axios.delete('https://api-pets.adaptable.app/users/1')
+.then(result => {
+  console.log(result)
+})
+.catch(error => {
+  console.log(error)
+})
+
+  }
 
 return (
   <>
   <div>The dogs:</div>
+
+<button onClick={handleClick}>Add</button>
 
 {petsList.map((characterObj, index) => {
   return (
