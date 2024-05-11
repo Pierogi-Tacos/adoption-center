@@ -1,54 +1,36 @@
-import { useEffect, useState } from 'react'
-import './App.css'
-import axios from 'axios';
+import "./App.css";
+import { useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+import HomePage from "./pages/HomePage"
+import User from "./pages/User"
+import Admin from "./pages/Admin"
+import About from "./pages/About"
+import NotFound from "./pages/NotFound"
+import NavBar from "./components/NavBar";
 
 function App() {
-  const [petsList, setPetsList] = useState([]);
+  //Theese variables may be useful if we decide to include the "user" part.
+  const [isLogged, setIsLogged] = useState(false); 
+  const [userName, setUserName] = useState(""); 
 
-  useEffect(() => {
-    axios.get('https://api-pets.adaptable.app/users')
-    .then(result => {
-      setPetsList(result.data);
-      console.log(result.data);
-
-    })
-    .catch(error => {
-      console.log("error", error);
-  })}, []);
-
-  function handleClick() {
-
-    const testObject ={
-      name: "test",
-      password: "fjkefk",
-    }
-axios.delete('https://api-pets.adaptable.app/users/1')
-.then(result => {
-  console.log(result)
-})
-.catch(error => {
-  console.log(error)
-})
-
-  }
-
-return (
-  <>
-  <div>The dogs:</div>
-
-<button onClick={handleClick}>Add</button>
-
-{petsList.map((characterObj, index) => {
   return (
-      <div key={index}>
-      <p>Name: {characterObj.name}</p>
-      <p>Breed: {characterObj.password}</p>
-      </div>
+    <>
+      <Header/>
+      <NavBar/>
 
-  )
-})}
-</>
-);
+      <Routes>
+          <Route path="/" element= {<HomePage/>}></Route>
+          <Route path="/user/:userName" element= {<User isLogged={isLogged} userName={userName}/>}></Route>
+          <Route path="/admin" element= {<Admin/>}></Route>
+          <Route path="/about" element= {<About/>}></Route>
+          <Route path="*" element= {<NotFound/>}></Route>
+        </Routes>
+
+      <Footer/>
+    </>
+  );
 }
 
 export default App;
