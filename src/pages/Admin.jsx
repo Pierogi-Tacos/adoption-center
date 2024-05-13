@@ -23,6 +23,11 @@ export default function Admin({ adminLogged }) {
   const [indexElementToEdit, setIndexElementToEdit] = useState(null);
   const [arrayToShow, setArrayToShow] = useState([]);
 
+  //
+  const [displayNewForm, setDisplayNewForm] = useState(false)
+  const [displayAllDogs, setDisplayAllDogs] = useState(false)
+  const [displayRequests, setDisplayRequests] = useState(false)
+
   useEffect(() => {
     axios
       .get("https://api-pets.adaptable.app/pets")
@@ -34,37 +39,59 @@ export default function Admin({ adminLogged }) {
       });
   }, []);
 
-  function handleDelete(index, petId){
+  function handleDelete(index, petId) {
     const newList = [...petsList];
-    newList.splice(index, 1)
-    setPetsList(newList)
-    axios.delete("https://api-pets.adaptable.app/pets/" + petId)
-      .then(response =>
-      console.log(response) )
-      .catch(error => console.log(error))
-    }
+    newList.splice(index, 1);
+    setPetsList(newList);
+    axios
+      .delete("https://api-pets.adaptable.app/pets/" + petId)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  }
 
   function handleEdit(index) {
     setIndexElementToEdit(index);
     setDisplayEditForm(true);
   }
 
-  function handleDetails() {
-   
+  function handleDetails() {}
+  function handleSeeAll() {
+    setDisplayNewForm(false)
+    setDisplayRequests(false)
+    setDisplayAllDogs(true)
+  }
+  function handleAddNew() {
+    setDisplayAllDogs(false)
+    setDisplayRequests(false)
+    setDisplayNewForm(true)
+  }
+  function handleSeeRequest() {
+    setDisplayAllDogs(false);
+    setDisplayNewForm(false);
+    setDisplayRequests(true)
   }
 
   return (
     <div>
       <h1>Welcome Admin!</h1>
-      <div></div>
 
-      <AddPetForm/>
-      <div>space for alskjfkdasfjls</div>
+      <div className="container options-admin">
+        <div className="row">
+          <div className="col btn" onClick={handleSeeAll}>See All Pets</div>
+          <div className="col btn" onClick={handleAddNew}>Add New Pet</div>
+          <div className="col btn" onClick={handleSeeRequest}>See Requests</div>
+        </div>
+      </div>
+
+      {displayNewForm &&
+      <AddPetForm />
+      } 
 
       {displayEditForm && (
         <EditForm itemToEdit={petsList[indexElementToEdit]} />
       )}
 
+      {displayAllDogs &&
       <div className="dogs-list">
         {petsList.map((characterObj, index) => {
           return (
@@ -77,13 +104,22 @@ export default function Admin({ adminLogged }) {
 
               <div className="admin-buttons">
                 <button onClick={handleDetails}>Details</button>
-                <button onClick={ () => handleEdit(index)}>Edit</button>
-                <button onClick={() => handleDelete(index, characterObj.id)}>Delete</button>
+                <button onClick={() => handleEdit(index)}>Edit</button>
+                <button onClick={() => handleDelete(index, characterObj.id)}>
+                  Delete
+                </button>
               </div>
             </div>
           );
         })}
       </div>
+      }
+
+      {displayRequests && 
+        <div>Space for requests</div>
+      }
+
+
     </div>
   );
 }

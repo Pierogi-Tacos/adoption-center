@@ -30,3 +30,8 @@ border: 1px solid black;
 .edit-form {
   border: 1px red solid;
 }
+.options-admin {
+  border: 1px solid blue;
+  height: 200px;
+
+}
