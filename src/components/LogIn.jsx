@@ -49,7 +49,7 @@ export default function LogIn( {setIsLogged, setActiveUser, setAdminLogged}) {
     <form onSubmit={handleLogIn}>
       <label>Name</label><input name="name" type="text"/>
       <label>Password</label><input name="password" type="text"/>
-      <button type="submit">Log in</button>
+      <button type="submit" className="btn btn-danger">Log in</button>
     </form>
   )
 }

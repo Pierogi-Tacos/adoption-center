@@ -24,6 +24,27 @@ export default function Admin ( {adminLogged}) {
   const [indexElementToEdit, setIndexElementToEdit] = useState(null)
   const [arrayToShow, setArrayToShow] = useState([])
 
+  function handleDetails(){
+
+  }
+  function handleEdit(){
+
+  }
+  function handleDelete(index){
+const newList = [...petsList];
+
+newList.splice(index, 1)
+
+    setPetsList(newList)
+    handleDelete()
+
+    // it needs to send information about the deleted item to the API
+
+
+  }
+  
+
+
   useEffect(() => {
     axios.get("https://api-pets.adaptable.app/pets")
       .then((result) => {
@@ -77,9 +98,10 @@ export default function Admin ( {adminLogged}) {
             <p>{characterObj.breed}</p>
             <p>{characterObj.age} years</p>
             <p>{characterObj.gender}</p>
+
             <div className="admin-buttons"> 
               <button onClick={handleDetails}>Details</button>
-              <button onClick={() => handleEdit(index)}>Edit</button>
+              <button onClick={handleEdit}>Edit</button>
               <button onClick={() => handleDelete(index)}>Delete</button>
             </div>
           </div>
@@ -87,6 +109,7 @@ export default function Admin ( {adminLogged}) {
         );
       })}
       </div>
+  
       
    </div>
   )
