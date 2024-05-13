@@ -35,3 +35,11 @@ border: 1px solid black;
   height: 200px;
 
 }
+.search-bar {
+  margin: 10px auto;
+}
+
+#filter-search-options {
+  display: flex;
+  justify-content: space-around;
+}

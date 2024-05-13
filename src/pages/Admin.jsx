@@ -55,6 +55,7 @@ export default function Admin({ adminLogged }) {
   }
 
   function handleDetails() {}
+
   function handleSeeAll() {
     setDisplayNewForm(false)
     setDisplayRequests(false)
@@ -69,6 +70,11 @@ export default function Admin({ adminLogged }) {
     setDisplayAllDogs(false);
     setDisplayNewForm(false);
     setDisplayRequests(true)
+  }
+
+  function handleSubmitSearch(e) {
+
+
   }
 
   return (
@@ -93,6 +99,39 @@ export default function Admin({ adminLogged }) {
 
       {displayAllDogs &&
       <div className="dogs-list">
+
+        <form className="search-bar" onSubmit={handleSubmitSearch}>
+          <input type="text" placeholder="Introduce a name, a city or breed"></input>
+
+          <div id="filter-search-options"> 
+
+            <label name="age" >Age:
+              <label>0 to 1 year<input type="checkbox"/></label>
+              <label>1 to 3 years<input type="checkbox"/></label>
+              <label>3 to 6 years<input type="checkbox"/></label>
+              <label>6 or more<input type="checkbox"/></label>
+            </label>
+
+            <label>Gender
+              <select name="gender">
+                <option value=""> </option>
+                <option value="male" >Male</option>
+                <option value="female"> Female</option>
+              </select>
+            </label>
+            
+            <label> Size:
+              <label>Small<input type="checkbox" value="small"/></label>
+              <label>Medium<input type="checkbox" value="medium"/></label>
+              <label>Large<input type="checkbox" value="large"/></label>
+            </label>
+
+          </div>
+
+          <button type="submit">Search</button>
+
+        </form>
+
         {petsList.map((characterObj, index) => {
           return (
             <div key={index} className="dog-item">
@@ -123,3 +162,21 @@ export default function Admin({ adminLogged }) {
     </div>
   );
 }
+
+/*
+function getLocation(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log("Geolocation not supported");
+    }
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log(Latitude: ${latitude}, Longitude: ${longitude});
+    }
+    function error() {
+      console.log("Unable to retrieve your location");
+    }
+  }
+*/
