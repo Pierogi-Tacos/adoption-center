@@ -59,6 +59,7 @@ export default function Admin({ adminLogged }) {
       <div></div>
 
       <AddPetForm/>
+      <div>space for alskjfkdasfjls</div>
 
       {displayEditForm && (
         <EditForm itemToEdit={petsList[indexElementToEdit]} />
