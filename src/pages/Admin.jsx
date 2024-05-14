@@ -79,35 +79,35 @@ export default function Admin({ adminLogged }) {
     MakeArrayToShow(searchInfo, petsList, setArrayToShow);
   }
 
-  function getLocation(){
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(success, error);
-    } else {
-      console.log("Geolocation not supported");
-    }
+  // function getLocation(){
+  //   if (navigator.geolocation) {
+  //     navigator.geolocation.getCurrentPosition(success, error);
+  //   } else {
+  //     console.log("Geolocation not supported");
+  //   }
     
-    function success(position) {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
-    }
+  //   function success(position) {
+  //     const latitude = position.coords.latitude;
+  //     const longitude = position.coords.longitude;
+  //     console.log(`Latitude: ${latitude}, Longitude: ${longitude}`);
+  //   }
     
-    function error() {
-      console.log("Unable to retrieve your location");
-    }
-  }
+  //   function error() {
+  //     console.log("Unable to retrieve your location");
+  //   }
+  // }
 
-  getLocation()
+  // getLocation()
 
   return (
     <div>
       <h1 className="text-danger">Welcome Admin!</h1>
 
       <div className="container options-admin border border-danger">
-        <div className="row border ">
-          <div className="col btn btn-info" onClick={handleSeeAll}>See All Pets</div>
-          <div className="col btn btn-info" onClick={handleAddNew}>Add New Pet</div>
-          <div className="col btn btn-info" onClick={handleSeeRequest}>See Requests</div>
+        <div className="row ">
+          <div className="col btn btn-info w-100" onClick={handleSeeAll}>See All Pets</div>
+          <div className="col btn btn-info w-100" onClick={handleAddNew}>Add New Pet</div>
+          <div className="col btn btn-info w-100" onClick={handleSeeRequest}>See Requests</div>
         </div>
       </div>
 
@@ -120,16 +120,21 @@ export default function Admin({ adminLogged }) {
       )}
 
       {displayAllDogs &&
-      <div className="dogs-list">
+      <div className="dogs-list container">
         <SearchBar activateSearch={activateSearch}/>
         {arrayToShow.map((characterObj, index) => {
           return (
+            <div className="col-md-4">
             <div key={index} className="dog-item">
+            <div className="dog-item">
+                <div className="dog-photos">
               <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
+              </div>
               <p>{characterObj.name}</p>
               <p>{characterObj.breed}</p>
               <p>{characterObj.age} years</p>
               <p>{characterObj.gender}</p>
+              </div>
 
               <div className="admin-buttons">
                 <button onClick={handleDetails}>Details</button>
@@ -138,7 +143,7 @@ export default function Admin({ adminLogged }) {
                   Delete
                 </button>
               </div>
-              
+              </div>
             </div>
           );
         })}
