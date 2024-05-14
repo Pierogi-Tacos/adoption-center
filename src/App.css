@@ -52,10 +52,18 @@ border: 1px solid black;
 } */
 
 .form-edit {
-  border: 1px red solid;
-  width: 70%;
+  width: 50%;
 }
 
-.dog-photos img {
+/* .dog-photos img {
   max-width: 70%;
+} */
+
+.dog-photos{
+  transition: 0.3s;
+}
+
+.dog-photos:hover {
+background-color: rgb(233, 233, 233);
+cursor: pointer;
 }
