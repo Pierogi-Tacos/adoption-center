@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import AddPetForm from "../components/AddPetForm";
 import axios from "axios";
 import EditForm from "../components/EditForm";
+import MakeArrayToShow from "../components/MakeArrayToShow";
+import SearchBar from "../components/SearchBar";
 
 export default function Admin({ adminLogged }) {
   /* const navigate = useNavigate();
@@ -33,6 +35,7 @@ export default function Admin({ adminLogged }) {
       .get("https://api-pets.adaptable.app/pets")
       .then((result) => {
         setPetsList(result.data);
+        setArrayToShow(result.data);
       })
       .catch((error) => {
         console.log("error", error);
@@ -55,6 +58,7 @@ export default function Admin({ adminLogged }) {
   }
 
   function handleDetails() {}
+
   function handleSeeAll() {
     setDisplayNewForm(false)
     setDisplayRequests(false)
@@ -69,6 +73,9 @@ export default function Admin({ adminLogged }) {
     setDisplayAllDogs(false);
     setDisplayNewForm(false);
     setDisplayRequests(true)
+  }
+  function activateSearch (searchInfo) {
+    MakeArrayToShow(searchInfo, petsList, setArrayToShow);
   }
 
   function getLocation(){
@@ -113,7 +120,9 @@ export default function Admin({ adminLogged }) {
 
       {displayAllDogs &&
       <div className="dogs-list">
-        {petsList.map((characterObj, index) => {
+        <SearchBar activateSearch={activateSearch}/>
+
+        {arrayToShow.map((characterObj, index) => {
           return (
             <div key={index} className="dog-item">
               <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
@@ -143,3 +152,21 @@ export default function Admin({ adminLogged }) {
     </div>
   );
 }
+
+/*
+function getLocation(){
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+      console.log("Geolocation not supported");
+    }
+    function success(position) {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log(Latitude: ${latitude}, Longitude: ${longitude});
+    }
+    function error() {
+      console.log("Unable to retrieve your location");
+    }
+  }
+*/
