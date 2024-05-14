@@ -100,13 +100,13 @@ export default function Admin({ adminLogged }) {
 
   return (
     <div>
-      <h1>Welcome Admin!</h1>
+      <h1 className="text-danger">Welcome Admin!</h1>
 
-      <div className="container options-admin">
-        <div className="row">
-          <div className="col btn" onClick={handleSeeAll}>See All Pets</div>
-          <div className="col btn" onClick={handleAddNew}>Add New Pet</div>
-          <div className="col btn" onClick={handleSeeRequest}>See Requests</div>
+      <div className="container options-admin border border-danger">
+        <div className="row border ">
+          <div className="col btn btn-info" onClick={handleSeeAll}>See All Pets</div>
+          <div className="col btn btn-info" onClick={handleAddNew}>Add New Pet</div>
+          <div className="col btn btn-info" onClick={handleSeeRequest}>See Requests</div>
         </div>
       </div>
 

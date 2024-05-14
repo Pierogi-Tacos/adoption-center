@@ -9,6 +9,7 @@ import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [isLogged, setIsLogged] = useState(false); 

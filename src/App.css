@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
   text-align: center;
 } 
@@ -8,9 +8,9 @@ header, footer {
 width: 100vw;
 height: 50px;
 border: 1px solid black;
-}
+} */
 
-.dog-item {
+/* .dog-item {
   background-color: rgb(227, 227, 227);
   border-radius: 20px;
   width: 300px;
@@ -21,20 +21,20 @@ border: 1px solid black;
 .dog-item img {
   height: 200px;
   width: 90%;
-}
-.admin-buttons {
+} */
+/* .admin-buttons {
   display: flex;
   justify-content: space-around;
-}
-.edit-form {
+} */
+/* .edit-form {
   border: 1px red solid;
-}
-.options-admin {
+} */
+/* .options-admin {
   border: 1px solid blue;
   height: 200px;
 
-}
-.search-bar {
+} */
+/* .search-bar {
   margin: 10px auto;
 }
 
@@ -49,4 +49,4 @@ border: 1px solid black;
   border-radius: 10px;
   text-indent: 5px;
 
-}
+} */
