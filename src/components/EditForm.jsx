@@ -4,7 +4,21 @@ import axios from "axios";
 
 const EditForm = ({itemToEdit}) => {
 
-  const [newPet, setNewPet] = useState({...itemToEdit});
+  //the code in lines 10-20 added because of the issue in console 
+
+  const [newPet, setNewPet] = useState({...itemToEdit,
+    name: itemToEdit.name || "",
+    breed: itemToEdit.breed || "",
+    age: itemToEdit.age || "",
+    location: itemToEdit.location || "",
+    vaccination: itemToEdit.vaccination || "",
+    gender: itemToEdit.gender || "",
+    size: itemToEdit.size || "",
+    likes_kids: itemToEdit.likes_kids || "",
+    description: itemToEdit.description || "",
+    owner: itemToEdit.owner || "",
+    image: itemToEdit.image || "",
+  });
     function handleChange(e) {
     let newObject = { ...newPet };
     newObject[e.target.name] = e.target.value;
