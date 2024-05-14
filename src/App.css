@@ -50,3 +50,8 @@ border: 1px solid black;
   text-indent: 5px;
 
 } */
+
+.form-edit {
+  border: 1px red solid;
+  width: 70%;
+}

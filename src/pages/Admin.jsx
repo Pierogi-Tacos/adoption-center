@@ -5,6 +5,7 @@ import axios from "axios";
 import EditForm from "../components/EditForm";
 import MakeArrayToShow from "../components/MakeArrayToShow";
 import SearchBar from "../components/SearchBar";
+import GetRequests from "../components/GetRequests";
 
 export default function Admin({ adminLogged }) {
   /* const navigate = useNavigate();
@@ -96,7 +97,7 @@ export default function Admin({ adminLogged }) {
     }
   }
 
-    getLocation()
+  getLocation()
 
   return (
     <div>
@@ -121,7 +122,6 @@ export default function Admin({ adminLogged }) {
       {displayAllDogs &&
       <div className="dogs-list">
         <SearchBar activateSearch={activateSearch}/>
-
         {arrayToShow.map((characterObj, index) => {
           return (
             <div key={index} className="dog-item">
@@ -138,6 +138,7 @@ export default function Admin({ adminLogged }) {
                   Delete
                 </button>
               </div>
+              
             </div>
           );
         })}
@@ -145,9 +146,8 @@ export default function Admin({ adminLogged }) {
       }
 
       {displayRequests && 
-        <div>Space for requests</div>
+        <GetRequests/>
       }
-
 
     </div>
   );
