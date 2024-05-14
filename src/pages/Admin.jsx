@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import AddPetForm from "../components/AddPetForm";
 import axios from "axios";
 import EditForm from "../components/EditForm";
+import MakeArrayToShow from "../components/MakeArrayToShow";
+import SearchBar from "../components/SearchBar";
 
 export default function Admin({ adminLogged }) {
   /* const navigate = useNavigate();
@@ -33,6 +35,7 @@ export default function Admin({ adminLogged }) {
       .get("https://api-pets.adaptable.app/pets")
       .then((result) => {
         setPetsList(result.data);
+        setArrayToShow(result.data);
       })
       .catch((error) => {
         console.log("error", error);
@@ -71,10 +74,8 @@ export default function Admin({ adminLogged }) {
     setDisplayNewForm(false);
     setDisplayRequests(true)
   }
-
-  function handleSubmitSearch(e) {
-
-
+  function activateSearch (searchInfo) {
+    MakeArrayToShow(searchInfo, petsList, setArrayToShow);
   }
 
   return (
@@ -99,40 +100,9 @@ export default function Admin({ adminLogged }) {
 
       {displayAllDogs &&
       <div className="dogs-list">
+        <SearchBar activateSearch={activateSearch}/>
 
-        <form className="search-bar" onSubmit={handleSubmitSearch}>
-          <input type="text" placeholder="Introduce a name, a city or breed"></input>
-
-          <div id="filter-search-options"> 
-
-            <label name="age" >Age:
-              <label>0 to 1 year<input type="checkbox"/></label>
-              <label>1 to 3 years<input type="checkbox"/></label>
-              <label>3 to 6 years<input type="checkbox"/></label>
-              <label>6 or more<input type="checkbox"/></label>
-            </label>
-
-            <label>Gender
-              <select name="gender">
-                <option value=""> </option>
-                <option value="male" >Male</option>
-                <option value="female"> Female</option>
-              </select>
-            </label>
-            
-            <label> Size:
-              <label>Small<input type="checkbox" value="small"/></label>
-              <label>Medium<input type="checkbox" value="medium"/></label>
-              <label>Large<input type="checkbox" value="large"/></label>
-            </label>
-
-          </div>
-
-          <button type="submit">Search</button>
-
-        </form>
-
-        {petsList.map((characterObj, index) => {
+        {arrayToShow.map((characterObj, index) => {
           return (
             <div key={index} className="dog-item">
               <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
