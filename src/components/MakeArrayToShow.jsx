@@ -2,8 +2,6 @@
 export default function MakeArrayToShow(searchInfo, petsList, setArrayToShow) {
   const newArray = [...petsList];
   const result = [];
-  // Detectar: ¿en cuáles está pidiendo información? 
-  // Sólo someter a filtrado de las que se está pidiendo información. 
 
     const searchMatches = (pet) => {
             const searchTerms = searchInfo.search.map(term => term.toLowerCase());
