@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import {userList} from "../constants"
 
-
 export default function LogIn( {setIsLogged, setActiveUser, setAdminLogged}) {
   const navigate = useNavigate()
 
@@ -24,8 +23,7 @@ export default function LogIn( {setIsLogged, setActiveUser, setAdminLogged}) {
       }
     }
     else {
-      console.log("Logic of worng passowrd/user")
-      alert("wrong password")
+      alert("Introduce a valid User and Password")
     }
 
   }
