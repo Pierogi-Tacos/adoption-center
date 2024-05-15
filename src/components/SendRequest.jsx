@@ -2,9 +2,11 @@ import axios from "axios"
 import { useState } from "react";
 
 export default function SendRequest({setDisplayRequest, itemToRequest, userName}) {
+  const date = new Date();
+
   const [infoRequest, setInfoRequest] = useState( 
     {
-    date: new Date(),
+    date: `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`,
     userName: userName,
     dogId: itemToRequest.id,
     message: ""
@@ -17,7 +19,6 @@ export default function SendRequest({setDisplayRequest, itemToRequest, userName}
   }
 
   function handleSend () {
-    console.log("Sending...", infoRequest)
     axios.post("https://api-pets.adaptable.app/requests", infoRequest)
       .then ( (response) => {
         console.log(response);
@@ -35,7 +36,6 @@ export default function SendRequest({setDisplayRequest, itemToRequest, userName}
         <h4>Intested in: {itemToRequest.name}</h4>
         <textarea rows="6" cols="70" name="message" id='text-area-space' onChange={handleText}></textarea>
         <button onClick={handleSend}>Send Request</button>
-
     </div>
 
     </div>

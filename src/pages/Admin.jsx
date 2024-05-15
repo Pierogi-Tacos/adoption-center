@@ -103,8 +103,8 @@ export default function Admin({ adminLogged }) {
     <div>
       <h1 className="text-danger">Welcome Admin!</h1>
 
-      <div className="container options-admin border border-danger">
-        <div className="row ">
+      <div className="container options-admin">
+        <div className="row border-0">
           <div className="col btn btn-info w-100" onClick={handleSeeAll}>See All Pets</div>
           <div className="col btn btn-info w-100" onClick={handleAddNew}>Add New Pet</div>
           <div className="col btn btn-info w-100" onClick={handleSeeRequest}>See Requests</div>

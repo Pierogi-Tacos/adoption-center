@@ -51,46 +51,127 @@ border: 1px solid black;
 
 } */
 
+header {
+  width: 100vw;
+  height: auto;
+  background-color: rgb(97, 97, 97);
+  display: flex;
+  justify-content: space-between;
+}
+header h1 {
+  color: white;
+  margin-left: 10px;
+  font-size: 50px;
+}
+header img {
+  height: 100px;
+  width: auto;
+  border-radius: 10px;
+}
+nav {
+  width: fit-content;
+  display: flex;
+  margin-right: 10px;
+}
+
+.link-nav {
+  font-size: 20px;
+  margin: 0 5px;
+  color: white;
+}
+
+.main-content-page {
+  width: 100%;
+  min-height: 80vh;
+  height: fit-content;
+  position: relative;
+  background-image: url("./background3.jpg");
+  background-size: cover;
+
+}
+
+.home-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+#login-box {
+  padding: 10px 40px;
+  background-color: rgb(236, 236, 236);
+  border-radius: 10px;
+  margin-top: 20px;
+  border: 2px solid black;
+}
+
+#login-box h2 {
+  margin: 0;
+}
+
+#login-form input {
+  border-radius: 10px;
+  width: 250px;
+  height: 40px;
+  margin: 10px 0;
+  text-indent: 10px;
+}
+
+
 .form-edit {
-  width: 50%;
+width: 50%;
+}
+
+.display-resquests-admin {
+  margin: 20px 0;
+
 }
 
 .requests-columns {
   display: flex;
   height: 50px;
   width: 70%;
-  justify-content: space-around;
   align-items: center;
   font-size: 18px;
   background-color: rgb(0, 0, 41);
   color: white;
+  margin: 0 auto;
+}
+.requests-columns > div {
+  flex: 1; 
+  text-align: center;
 }
 
 .item-request {
   width: 70%;
   height: 50px;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   font-size: 16px;
   background-color: rgb(240, 240, 240);
+  margin: 0 auto;
 }
 .item-request-dark {
   background-color: rgb(225, 225, 225);
 }
 .item-request p {
-  margin: 0;
+  margin: 0 5px;
+  flex: 1;
+  text-align: center; /* Para centrar el texto horizontalmente */
+
 }
 .item-request button {
   border-radius: 10px;
   border: none;
   background-color: rgb(106, 106, 106);
   padding: 5px 14px;
-  color: white
-}
-.space-body {
-  height: 100%;
-  width: 100%;
+  color: white;
+  flex: 1;
+  margin-right: 5px;
 }
 
 #request-box-background {
@@ -104,8 +185,6 @@ display: flex;
 align-items: center;
 z-index: 9;
 }
-
-
 
 #admin-form-info {
   width: 100%;
@@ -132,7 +211,6 @@ padding: 5px 20px;
   background-color: rgb(70, 70, 70);
   &:hover {
     background-color: rgb(10, 10, 10);
-
   }
 }
 
@@ -170,4 +248,64 @@ padding: 5px 20px;
 .dog-photos:hover {
 background-color: rgb(233, 233, 233);
 cursor: pointer;
+}
+
+.request-details {
+  width: 60vw;
+  margin: auto auto;
+  border-radius: 10px;
+  background-color: rgb(0, 54, 92);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  font-size: 25px;
+}
+.request-details img {
+  height: 150px;
+  width: 150px;
+  margin: auto auto;
+  border-radius: 10px;
+}
+
+#user-request-message {
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: #ececec;
+  color: black;
+  padding: 15px 10px;
+}
+
+.request-details button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  font-size: 15px;
+  margin: 0 auto;
+
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-text {
+  font-size: 14px;
 }

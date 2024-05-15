@@ -49,7 +49,7 @@ export default function User({ isLogged, activeUser }) {
     };
 
     return (
-      <div className="space-body">
+      <div className="main-content-page">
 
         {displayRequest && 
           <SendRequest setDisplayRequest={setDisplayRequest} itemToRequest={itemToRequest} userName={infoLink.userName}/>

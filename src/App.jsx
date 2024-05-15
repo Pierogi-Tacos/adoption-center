@@ -7,7 +7,6 @@ import User from "./pages/User"
 import Admin from "./pages/Admin"
 import About from "./pages/About"
 import NotFound from "./pages/NotFound"
-import NavBar from "./components/NavBar";
 import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -18,10 +17,9 @@ function App() {
 
   return (
     <>
-      <Header/>
-      <NavBar/>
+    <Header/>
 
-      <Routes>
+    <Routes>
           <Route path="/" element= {<HomePage setIsLogged={setIsLogged} setActiveUser={setActiveUser} setAdminLogged={setAdminLogged}/>}></Route>
           <Route path="/user/:userName" element= {<User isLogged={isLogged} activeUser={activeUser}/>}></Route>
           <Route path="/admin" element= {<Admin adminLogged={adminLogged}/>}></Route>
