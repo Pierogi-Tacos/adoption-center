@@ -4,7 +4,21 @@ import axios from "axios";
 
 const EditForm = ({itemToEdit}) => {
 
-  const [newPet, setNewPet] = useState({...itemToEdit});
+  //the code in lines 10-20 added because of the issue in console 
+
+  const [newPet, setNewPet] = useState({...itemToEdit,
+    name: itemToEdit.name || "",
+    breed: itemToEdit.breed || "",
+    age: itemToEdit.age || "",
+    location: itemToEdit.location || "",
+    vaccination: itemToEdit.vaccination || "",
+    gender: itemToEdit.gender || "",
+    size: itemToEdit.size || "",
+    likes_kids: itemToEdit.likes_kids || "",
+    description: itemToEdit.description || "",
+    owner: itemToEdit.owner || "",
+    image: itemToEdit.image || "",
+  });
     function handleChange(e) {
     let newObject = { ...newPet };
     newObject[e.target.name] = e.target.value;
@@ -29,14 +43,16 @@ const EditForm = ({itemToEdit}) => {
 
   return (  
     
-  <form onSubmit={handleSubmit} className="edit-form">
+  <form onSubmit={handleSubmit} className="edit-form row">
    
-   <div className="form-row form-edit">
+   <div className="form-row form-edit mx-auto p-3 border rounded">
+   <legend>Edit Pet's Information</legend>
 
-    <div className="form-group">
-        <label className="col-sm-2 col-form-label" htmlFor="name">Pet's name</label>
+    <div className="col-md-5 mb-3 px-4">
+        <label className="col-form-label" htmlFor="name">Pet's name</label>
+        {/* <div className="col-sm-8"> */}
         <input
-          className="form-control col-sm-6"
+          className="form-control"
           type="text"
           name="name"
           value={newPet.name}
@@ -46,9 +62,12 @@ const EditForm = ({itemToEdit}) => {
         />
         <small className="form-text"></small>
     </div>
+    {/* </div> */}
     
-    <div className="form-group">
-      <label htmlFor="breed">Pet's breed</label>
+    
+    <div className="col-md-6 mb-3 px-4">
+      <label className="col-form-label" htmlFor="breed">Pet's breed</label>
+      {/* <div className="col-sm-10"> */}
       <input
         className="form-control"
         type="text"
@@ -59,9 +78,11 @@ const EditForm = ({itemToEdit}) => {
         /* required */
       />
     </div>
+    {/* </div> */}
 
-    <div className="form-group">
-      <label htmlFor="age">Pet's age</label>
+    <div className="col-md-2 mb-3 px-4">
+      <label className="col-form-label" htmlFor="age">Pet's age</label>
+      {/* <div className="col-sm-4"> */}
       <input
         className="form-control"
         type="number"
@@ -71,9 +92,11 @@ const EditForm = ({itemToEdit}) => {
         placeholder={newPet.age}
       />
     </div>
+    {/* </div> */}
 
-    <div className="form-group">
-      <label htmlFor="location">Location</label>
+    <div className="col-md-5 mb-3 px-4">
+      <label className="col-form-label" htmlFor="location">Location</label>
+      {/* <div className="col-sm-8"> */}
       <input
         className="form-control"
         type="text"
@@ -84,9 +107,11 @@ const EditForm = ({itemToEdit}) => {
         /* required */
       />
     </div>
+    {/* </div> */}
 
-    <div className="form-group">
-      <label htmlFor="vaccination">Vaccination</label>
+    <div className="col-md-3 mb-3 px-4">
+      <label className="col-form-label" htmlFor="vaccination">Vaccination</label>
+      {/* <div className="col-sm-6"> */}
       <select
         className="form-control"
         name="vaccination"
@@ -97,9 +122,11 @@ const EditForm = ({itemToEdit}) => {
         <option value={false}>No</option>
       </select>
     </div>
+    {/* </div> */}
 
-    <div className="form-group">
-      <label htmlFor="gender">Gender</label>
+    <div className="col-md-3 mb-3 px-4">
+      <label className="col-form-label" htmlFor="gender">Gender</label>
+      {/* <div className="col-sm-8"> */}
       <select
         className="form-control"
         name="gender"
@@ -110,9 +137,11 @@ const EditForm = ({itemToEdit}) => {
         <option value="Female">Female</option>
       </select>
     </div>
+    {/* </div> */}
 
-    <div className="form-group">
-      <label htmlFor="size">Size</label>
+    <div className="col-md-3 mb-3 px-4">
+      <label className="col-sm-2 col-form-label" htmlFor="size">Size</label>
+      {/* <div className="col-sm-9"> */}
       <select
         className="form-control"
         name="size"
@@ -124,9 +153,11 @@ const EditForm = ({itemToEdit}) => {
         <option value={"large"}>Large</option>
       </select>
       </div>
+      {/* </div> */}
 
-      <div className="form-group">
-        <label htmlFor="likes_kids">Likes kids?</label>
+      <div className="col-md-3 mb-3 px-4">
+        <label className="col-form-label" htmlFor="likes_kids">Good with kids</label>
+        {/* <div className="col-sm-6"> */}
         <select
           className="form-control"
           name="likes_kids"
@@ -137,9 +168,11 @@ const EditForm = ({itemToEdit}) => {
           <option value={false}>No</option>
         </select>
       </div>
+      {/* </div> */}
 
-      <div className="form-group">
-        <label htmlFor="description">Description</label>
+      <div className="col-md-8 mb-3 px-4">
+        <label className="col-form-label" htmlFor="description">Description</label>
+        {/* <div className="col-sm-9"> */}
         <textarea
           className="form-control"
           name="description"
@@ -149,9 +182,11 @@ const EditForm = ({itemToEdit}) => {
           /* required */
         />
        </div>
+       {/* </div> */}
 
-      <div className="form-group">
-        <label htmlFor="owner">Owner</label>
+      <div className="col-md-4 mb-3 px-4">
+        <label className="col-form-label" htmlFor="owner">Owner</label>
+        {/* <div className="col-sm-7"> */}
         <input
           className="form-control"
           type="text"
@@ -161,9 +196,11 @@ const EditForm = ({itemToEdit}) => {
           placeholder={newPet.owner}
         />
       </div>
+      {/* </div> */}
 
-      <div className="form-group">
-        <label htmlFor="image">Image URL</label>
+      <div className="col-md-6 mb-3 px-4">
+        <label className="col-form-label" htmlFor="image">Image URL</label>
+        {/* <div className="col-sm-9"> */}
         <input
           className="form-control"
           type="url"
@@ -173,12 +210,17 @@ const EditForm = ({itemToEdit}) => {
           placeholder={newPet.image}
         />
        </div>
-
-      <label htmlFor="imageFile">Upload Image</label>
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
-
+       {/* </div> */}
+       <div className="mb-3 px-4">
+      <label className="form-label" htmlFor="imageFile">Upload Image</label>
+      <div className="custom-file">
+      <input className="custom-file-input" type="file" accept="image/*" onChange={handleImageUpload} />
+      <label className="custom-file-label" htmlFor="imageFile">Choose file</label>
+      </div>
+      </div>
+      <div className="col-12 pt-4 mb-3 px-4">
       <button className="btn btn-info" type="submit">Save Changes</button>
-    
+      </div>
    </div>
     </form>
   );

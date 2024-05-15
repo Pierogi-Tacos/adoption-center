@@ -41,9 +41,14 @@ const AddPetForm = () => {
   };
 
   return (  
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Pet's name</label>
+    <form onSubmit={handleSubmit} className="edit-form row">
+      <div className="form-row form-edit mx-auto p-3 border rounded">
+   <legend>Add Pet's Information</legend>
+
+   <div className="col-md-5 mb-3 px-4">
+      <label className="col-form-label" htmlFor="name">Pet's name</label>
       <input
+      className="form-control"
         type="text"
         name="name"
         value={newPet.name}
@@ -51,9 +56,12 @@ const AddPetForm = () => {
         placeholder="Enter pet's name"
         /* required */
       />
+      </div>
 
-      <label htmlFor="breed">Pet's breed</label>
+      <div className="col-md-6 mb-3 px-4">
+      <label className="col-form-label" htmlFor="breed">Pet's breed</label>
       <input
+      className="form-control"
         type="text"
         name="breed"
         value={newPet.breed}
@@ -61,18 +69,24 @@ const AddPetForm = () => {
         placeholder="Enter pet's breed"
         /* required */
       />
+      </div>
 
-      <label htmlFor="age">Pet's age</label>
+      <div className="col-md-4 mb-3 px-4">
+      <label className="col-form-label" htmlFor="age">Pet's age</label>
       <input
+      className="form-control"
         type="number"
         name="age"
         value={newPet.age}
         onChange={handleChange}
         placeholder="Enter pet's age"
       />
+      </div>
 
-      <label htmlFor="location">Location</label>
+      <div className="col-md-5 mb-3 px-4">
+      <label className="col-form-label" htmlFor="location">Location</label>
       <input
+      className="form-control"
         type="text"
         name="location"
         value={newPet.location}
@@ -80,9 +94,12 @@ const AddPetForm = () => {
         placeholder="Enter location"
         /* required */
       />
+      </div>
 
-      <label htmlFor="vaccination">Vaccination</label>
+      <div className="col-md-3 mb-3 px-4">
+      <label className="col-form-label" htmlFor="vaccination">Vaccination</label>
       <select
+      className="form-control"
         name="vaccination"
         value={newPet.vaccination}
         onChange={handleChange} /* required */
@@ -91,9 +108,12 @@ const AddPetForm = () => {
         <option value={true}>Yes</option>
         <option value={false}>No</option>
       </select>
+      </div>
 
-      <label htmlFor="gender">Gender</label>
+      <div className="col-md-3 mb-3 px-4">
+      <label className="col-form-label" htmlFor="gender">Gender</label>
       <select
+      className="form-control"
         name="gender"
         value={newPet.gender}
         onChange={handleChange} /* required */
@@ -102,9 +122,12 @@ const AddPetForm = () => {
         <option value="Male">Male</option>
         <option value="Female">Female</option>
       </select>
+      </div>
 
-      <label htmlFor="size">Size</label>
+      <div className="col-md-3 mb-3 px-4">
+      <label className="col-sm-2 col-form-label" htmlFor="size">Size</label>
       <select
+      className="form-control"
         name="size"
         value={newPet.size}
         onChange={handleChange} /* required */
@@ -114,9 +137,12 @@ const AddPetForm = () => {
         <option value={"medium"}>Medium</option>
         <option value={"large"}>Large</option>
       </select>
+      </div>
 
-      <label htmlFor="likes_kids">Likes kids?</label>
+      <div className="col-md-3 mb-3 px-4">
+      <label className="col-form-label" htmlFor="likes_kids">Likes kids?</label>
       <select
+      className="form-control"
         name="likes_kids"
         value={newPet.likes_kids}
         onChange={handleChange} /*/* required */
@@ -125,39 +151,55 @@ const AddPetForm = () => {
         <option value={true}>Yes</option>
         <option value={false}>No</option>
       </select>
+      </div>
 
-      <label htmlFor="description">Description</label>
+      <div className="col-md-8 mb-3 px-4">
+      <label className="col-form-label" htmlFor="description">Description</label>
       <textarea
+      className="form-control"
         name="description"
         value={newPet.description}
         onChange={handleChange}
         placeholder="Enter pet's description"
         /* required */
       />
+      </div>
 
-      <label htmlFor="owner">Owner</label>
+      <div className="col-md-4 mb-3 px-4">
+      <label className="col-form-label" htmlFor="owner">Owner</label>
       <input
+       className="form-control"
         type="text"
         name="owner"
         value={newPet.owner}
         onChange={handleChange}
         placeholder="Enter owner's name"
       />
+      </div>
 
-      <label htmlFor="image">Image URL</label>
+      <div className="col-md-6 mb-3 px-4">
+      <label className="col-form-label" htmlFor="image">Image URL</label>
       <input
+      className="form-control"
         type="url"
         name="image"
         value={newPet.image}
         onChange={handleChange}
         placeholder="Enter image URL"
       />
+      </div>
 
-      <label htmlFor="imageFile">Upload Image</label>
-
-      <input type="file" accept="image/*" onChange={handleImageUpload} />
-
-      <button type="submit"> Add a new pet </button>
+      <div className="mb-3 px-4">
+    <label className="form-label" htmlFor="imageFile">Upload Image</label>
+    <div className="custom-file">
+    <input className="custom-file-input" type="file" accept="image/*" onChange={handleImageUpload} />
+    <label className="custom-file-label" htmlFor="imageFile">Choose file</label>
+      </div>
+      </div>
+      <div className="col-12 pt-4 mb-3 px-4">
+      <button className="btn btn-info" type="submit"> Add a new pet </button>
+      </div>
+      </div>
     </form>
   );
 };

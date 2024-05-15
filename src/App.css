@@ -152,3 +152,18 @@ padding: 5px 20px;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
   }
+  width: 50%;
+}
+
+/* .dog-photos img {
+  max-width: 70%;
+} */
+
+.dog-photos{
+  transition: 0.3s;
+}
+
+.dog-photos:hover {
+background-color: rgb(233, 233, 233);
+cursor: pointer;
+}
