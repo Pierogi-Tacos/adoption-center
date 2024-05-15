@@ -61,35 +61,68 @@ export default function SearchBar( {activateSearch}) {
   }
 
   return ( 
-    <form className="search-bar" onSubmit={handleSubmitSearch}>
-          <input id="search-field" onChange={handleInputSearch} name="search" type="text" placeholder="Introduce a name, a city or breed"></input>
+    <form className="search-bar container" onSubmit={handleSubmitSearch}>
+      <div className="row d-flex justify-content">
+      <div className="col-md-9">
+        <div className="card p-4 mt-3">
+          <h3 className="heading mt-2 heading-search">Find your dog!</h3>
 
-          <div id="filter-search-options"> 
+         
+          
+          <div className="search-top">
+           <div className="search col-md-8">
+           <input className="search-input" id="search-field" onChange={handleInputSearch} name="search" type="text" placeholder="Introduce a name, a city or breed"></input>
+          </div>
 
-            <label name="age" >Age:
-              <label >0 to 1 year<input type="checkbox" value={"1"} onChange={handleInputAge}/></label>
-              <label>1 to 3 years<input type="checkbox" value={"2"} onChange={handleInputAge}/></label>
-              <label>3 to 6 years<input type="checkbox"value={"3"} onChange={handleInputAge}/></label>
-              <label>6 or more<input type="checkbox"value={"4"} onChange={handleInputAge}/></label>
-            </label>
-
-            <label>Gender
-              <select name="gender" onChange={handleInputGender} >
-                <option value=""> </option>
+          <div className="col-md-4">
+          
+             <select className="form-select search-gender" name="gender" onChange={handleInputGender} >
+                <option className="search-gender-select" value="">Select gender </option>
                 <option value="male" >Male</option>
                 <option value="female"> Female</option>
               </select>
-            </label>
+            </div>
+            </div>
             
-            <label name="size" onChange={handleInputSize} > Size:
-              <label>Small<input type="checkbox" value="small"/></label>
-              <label>Medium<input type="checkbox" value="medium"/></label>
-              <label>Large<input type="checkbox" value="large"/></label>
-            </label>
+
+          <div id="filter-search-options"> 
+
+          <label>Age:</label>
+          <div className="form-check form-check-inline">
+           <input className="form-check-input" type="checkbox" value={"1"} onChange={handleInputAge}/>
+              <label className="form-check-label">0 to 1 year</label>
+              </div>
+
+              <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" value={"2"} onChange={handleInputAge}/>
+              <label className="form-check-label">1 to 3 years</label>
+              </div>
+             
+              <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox"value={"3"} onChange={handleInputAge}/>
+              <label className="form-check-label">3 to 6 years</label>
+              </div>
+
+              <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox"value={"4"} onChange={handleInputAge}/>
+              <label className="form-check-label">6 or more</label>
+              </div>
+              <br />
+
+            <label name="size" onChange={handleInputSize} > Size: </label>
+            <div className="form-check form-check-inline">
+              <input className="form-check-input" type="checkbox" value="small"/><label className="form-check-label">Small </label>
+              <input className="form-check-input" type="checkbox" value="medium"/><label className="form-check-label">Medium </label>
+              <input className="form-check-input" type="checkbox" value="large"/><label className="form-check-label">Large </label>
+              </div>
 
           </div>
-
-          <button type="submit">Search</button>
+          
+          <button className="submit-search" type="submit">Search</button>
+          
+          </div>
+          </div>
+          </div>
 
         </form>
 

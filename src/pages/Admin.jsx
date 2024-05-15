@@ -140,6 +140,8 @@ export default function Admin({ adminLogged }) {
 
               <div className="admin-buttons btn-group mx-auto" role="group">
                 <button type="button" className="btn btn-secondary border border-dark" onClick={handleDetails}>Details</button>
+                
+                
                 <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleEdit(index)}>Edit</button>
                 <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDelete(index, characterObj.id)}>
                   Delete

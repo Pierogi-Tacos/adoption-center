@@ -237,9 +237,6 @@ padding: 5px 20px;
   }
 
 
-/* .dog-photos img {
-  max-width: 70%;
-} */
 
 .dog-photos{
   transition: 0.3s;
@@ -308,4 +305,156 @@ cursor: pointer;
 
 .footer-text {
   font-size: 14px;
+}
+
+.request-details {
+  width: 60vw;
+  margin: auto auto;
+  border-radius: 10px;
+  background-color: rgb(0, 54, 92);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  font-size: 25px;
+}
+.request-details img {
+  height: 150px;
+  width: 150px;
+  margin: auto auto;
+  border-radius: 10px;
+}
+
+#user-request-message {
+  font-size: 18px;
+  border-radius: 10px;
+  background-color: #ececec;
+  color: black;
+  padding: 15px 10px;
+}
+
+.request-details button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background-color: black;
+  font-size: 15px;
+  margin: 0 auto;
+
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  margin-right: 10px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+.footer-text {
+  font-size: 14px;
+}
+
+
+/* Search bar styling */
+.heading-search{
+  font-size: 26px;
+}
+
+/* doesnt work - why?*/
+.search-bar{
+  font-weight: 300;
+}
+
+.search-bar .card{
+  
+  border: none;
+  background: #eee;
+  border-radius: 10px;
+  
+
+
+}
+
+.search {
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 8px;
+  margin-left: 0;
+  height: 40px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  
+
+}
+
+.search-input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  width: 0;
+  margin-top: 0;
+  line-height: 20px;
+  transition: width 0.4s linear
+}
+
+.search .search-input {
+  padding: 0 10px;
+  width: 100%;
+  caret-color: #536bf6;
+  font-size: 16px;
+  font-weight: 300;
+  color: black;
+  transition: width 0.4s linear;
+}
+
+#filter-search-options{
+  font-size: 14px;
+  line-height: 1,5;
+  
+}
+#filter-search-options label{
+  font-weight: 400;
+}
+
+.search-gender{
+  margin-top: 10px; 
+  margin-left: 20px;
+  width: 70%;
+  height: 40px;
+  border-width: 0;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: 300;
+}
+.submit-search{
+  border-width: 1px;
+  border-radius: 20px;
+  width: 15%;
+  height: 40px;
+  transition: 0.3s;
+  background-color: black;
+  color:#eee;
+  margin-top: 10px;
+  float: right;
+  
+}
+.submit-search:hover{
+  background-color: rgb(191, 191, 191);
+cursor: pointer;
+
 }
