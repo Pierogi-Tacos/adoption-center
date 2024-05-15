@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const EditForm = ({itemToEdit, setDisplayEditForm}) => {
+const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest}) => {
 
   //the code in lines 10-20 added because of the issue in console 
 
@@ -40,12 +40,16 @@ const EditForm = ({itemToEdit, setDisplayEditForm}) => {
         console.log("error", error);
       });
   };
+  const handleClose = () => {
+    setDisplayEditForm(false);
+  };
 //onClick={() => setDisplayEditForm(false)} 
   return (  
   <div id="request-box-background">
-    <form onSubmit={handleSubmit} className="edit-form row" id="form-admin-edit" style={ {backgroundColor:'white', margin:"0px auto", width:"90%"}}>
+    <form onSubmit={handleSubmit} className="edit-form row border rounded" id="form-admin-edit" style={ {backgroundColor:'white', margin:"0px auto", width:"90%"}}>
    
-   <div className="form-row form-edit mx-auto p-3 border rounded" id="admin-form-info">
+   <div className="form-row form-edit mx-auto p-3" id="admin-form-info">
+   <button className="btn btn-dark" type="button" onClick={() => setDisplayEditForm(false)}>Close</button>
    <legend>Edit Pet's Information</legend>
 
     <div className="col-md-5 mb-3 px-4">

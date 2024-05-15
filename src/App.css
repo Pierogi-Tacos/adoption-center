@@ -85,9 +85,17 @@ nav {
   min-height: 80vh;
   height: fit-content;
   position: relative;
-  background-image: url("./background3.jpg");
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./dogs.jpg");
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
+}
+.hero-text{
+  text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
 }
 
 .home-content {
@@ -188,6 +196,7 @@ z-index: 9;
 
 #admin-form-info {
   width: 100%;
+  
 }
 
 #request-box {
@@ -457,4 +466,35 @@ cursor: pointer;
   background-color: rgb(191, 191, 191);
 cursor: pointer;
 
+}
+/* User view styling */
+
+.hero-text{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* doesn't work centering*/
+.dog-details{
+  margin: auto;
+  width: 50%;
+}
+.dog-details img{
+  border-radius: 20px;
+  width: 90%;
+  height: auto;
+
+}
+
+.dog-details-text{
+padding-top: 30px;
+}
+.dog-details-text button{
+  margin-top: 30px;
+}
+.dog-details-left-col{
+  text-align: left;
+  
 }

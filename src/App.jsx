@@ -9,6 +9,7 @@ import About from "./pages/About"
 import NotFound from "./pages/NotFound"
 import { Route, Routes } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PetDetails from './components/PetDetails';
 
 function App() {
   const [isLogged, setIsLogged] = useState(false); 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/admin" element= {<Admin adminLogged={adminLogged}/>}></Route>
           <Route path="/about" element= {<About/>}></Route>
           <Route path="*" element= {<NotFound/>}></Route>
+          <Route path="/pet/:petId" element={<PetDetails />} />
         </Routes>
 
       <Footer/>

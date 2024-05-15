@@ -6,8 +6,10 @@ import EditForm from "../components/EditForm";
 import MakeArrayToShow from "../components/MakeArrayToShow";
 import SearchBar from "../components/SearchBar";
 import GetRequests from "../components/GetRequests";
+import PetDetails from "../components/PetDetails";
 
 export default function Admin({ adminLogged }) {
+  const navigate = useNavigate();
   /* const navigate = useNavigate();
 
   if (!adminLogged) {
@@ -58,7 +60,9 @@ export default function Admin({ adminLogged }) {
     setDisplayEditForm(true);
   }
 
-  function handleDetails() {}
+  function handleDetails(index, petId) {
+    navigate(`/pet/${petId}`);
+  }
 
   function handleSeeAll() {
     setDisplayNewForm(false)
@@ -139,7 +143,7 @@ export default function Admin({ adminLogged }) {
               
 
               <div className="admin-buttons btn-group mx-auto" role="group">
-                <button type="button" className="btn btn-secondary border border-dark" onClick={handleDetails}>Details</button>
+                <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDetails(index, characterObj.id)}>Details</button>
                 
                 
                 <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleEdit(index)}>Edit</button>
@@ -162,6 +166,7 @@ export default function Admin({ adminLogged }) {
     </div>
   );
 }
+
 
 /*
 function getLocation(){
