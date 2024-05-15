@@ -72,7 +72,7 @@ export default function User({ isLogged, activeUser }) {
             {arrayToShow.map((characterObj, index) => {
               return (
                 <div key={index} className="dog-item">
-                  <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
+                  <img src={characterObj.image} />
                   <p>{characterObj.name}</p>
                   <p>{characterObj.breed}</p>
                   <p>{characterObj.age} years</p>

@@ -28,8 +28,8 @@ export default function MakeArrayToShow(searchInfo, petsList, setArrayToShow) {
         const ageRanges = {
             1: [0, 1],
             2: [1, 3],
-            3: [3, 5],
-            4: [5, Infinity]
+            3: [3, 6],
+            4: [6, Infinity]
         };
         // Verificar si la edad del animal está dentro del rango especificado
         return searchInfo.age.some(range => {

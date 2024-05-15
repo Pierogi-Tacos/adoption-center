@@ -10,11 +10,9 @@ export default function SearchBar( {activateSearch}) {
 
   function handleSubmitSearch(e) {
     e.preventDefault();
-    let keys = Object.keys(searchInfo);
-      if ( (keys.some( key => searchInfo[key].length !== 0 )) ) {
-        activateSearch(searchInfo)
-      }    
+    activateSearch(searchInfo)
   }
+  
 
   function handleInputSearch(e) {
     let object = {...searchInfo};
