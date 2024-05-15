@@ -52,8 +52,7 @@ border: 1px solid black;
 } */
 
 .form-edit {
-  border: 1px red solid;
-  width: 70%;
+  width: 50%;
 }
 
 .requests-columns {
@@ -96,13 +95,20 @@ border: 1px solid black;
 
 #request-box-background {
 position: fixed;
+width: 100%;
+height: 100%;
 top: 0px;
 left: 0px;
 background-color: rgb(86, 86, 86, 0.9);
 display: flex;
 align-items: center;
-width: 100%;
-height: 100%;
+z-index: 9;
+}
+
+
+
+#admin-form-info {
+  width: 100%;
 }
 
 #request-box {
@@ -115,9 +121,8 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 padding: 5px 20px;
-
-
 }
+
 #request-box button {
   border: none;
   width: 100px;
@@ -152,8 +157,7 @@ padding: 5px 20px;
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
   }
-  width: 50%;
-}
+
 
 /* .dog-photos img {
   max-width: 70%;

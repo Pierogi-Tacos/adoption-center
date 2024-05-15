@@ -116,7 +116,7 @@ export default function Admin({ adminLogged }) {
       } 
 
       {displayEditForm && (
-        <EditForm itemToEdit={petsList[indexElementToEdit]} />
+        <EditForm itemToEdit={petsList[indexElementToEdit]} setDisplayEditForm={setDisplayEditForm} />
       )}
 
       {displayAllDogs &&

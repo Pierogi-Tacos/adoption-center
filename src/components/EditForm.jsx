@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const EditForm = ({itemToEdit}) => {
+const EditForm = ({itemToEdit, setDisplayEditForm}) => {
 
   //the code in lines 10-20 added because of the issue in console 
 
@@ -40,12 +40,12 @@ const EditForm = ({itemToEdit}) => {
         console.log("error", error);
       });
   };
-
+//onClick={() => setDisplayEditForm(false)} 
   return (  
-    
-  <form onSubmit={handleSubmit} className="edit-form row">
+  <div id="request-box-background">
+    <form onSubmit={handleSubmit} className="edit-form row" id="form-admin-edit" style={ {backgroundColor:'white', margin:"0px auto", width:"90%"}}>
    
-   <div className="form-row form-edit mx-auto p-3 border rounded">
+   <div className="form-row form-edit mx-auto p-3 border rounded" id="admin-form-info">
    <legend>Edit Pet's Information</legend>
 
     <div className="col-md-5 mb-3 px-4">
@@ -222,7 +222,9 @@ const EditForm = ({itemToEdit}) => {
       <button className="btn btn-info" type="submit">Save Changes</button>
       </div>
    </div>
-    </form>
+
+   </form>
+  </div>
   );
 };
 export default EditForm;

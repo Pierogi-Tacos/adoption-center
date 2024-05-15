@@ -36,7 +36,7 @@ export default function SendRequest({setDisplayRequest, itemToRequest, userName}
         <textarea rows="6" cols="70" name="message" id='text-area-space' onChange={handleText}></textarea>
         <button onClick={handleSend}>Send Request</button>
 
-      </div>
+    </div>
 
     </div>
   )
