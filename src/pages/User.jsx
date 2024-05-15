@@ -78,9 +78,7 @@ export default function User({ isLogged, activeUser }) {
                   <p>{characterObj.age} years</p>
                   <p>{characterObj.gender}</p>
 
-                  <div className="user-buttons">
-                    <button onClick={ () => handleRequest(index)}>Send Request</button>
-                  </div>
+                  
                 </div>
               );
             })}
