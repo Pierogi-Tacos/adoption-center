@@ -1,53 +1,96 @@
 import { useState } from "react";
-import { useNavigate, useParams} from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
+import SearchBar from "../components/SearchBar";
+import MakeArrayToShow from "../components/MakeArrayToShow";
+import SendRequest from "../components/SendRequest";
 
-/*
-I implemented a validation logic to verify if the user is logged in. 
-
-The evaluation has two parts: 
-  isLogged is used to verify that the user went through the log-in process.
-
-  activeUser makes sure that the user is accessing his/her own user-page, (to prevent that, for example, Christian loggs in and tries to go to Magda's page.
-
-If the user has not logged in, or if he/she tries to enter a different page, then he/she will be redirected to the home Page
-
-*/
-
-export default function User ( {isLogged, activeUser}) {
+export default function User({ isLogged, activeUser }) {
   const infoLink = useParams();
   const navigate = useNavigate();
+  const [displayDogs, setDisplayDogs] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [petsList, setPetsList] = useState([]);
+  const [arrayToShow, setArrayToShow] = useState([]);
+  const [displayRequest, setDisplayRequest] =useState(false)
+  const [itemToRequest, setItemToRequest] = useState({})
 
-  /*
-  I am using useParams() to obtain the name of the user to which the user want's to access; I store that information in infoLink;
-  Then we access infoLink.useName to get the string. 
-  In the evaluation we check if activeUser (the user that logged in) is the same as the page we try to access (info.Link.userName).
-  */
-
-  console.log("Params:", infoLink);
-  console.log("Property userName of infoLink:", infoLink.userName)
-  console.log("The user that is trying to access:", activeUser)
-
-  //Checking if the user has logged in, and if is accessing it's own user page
-    if (!isLogged || activeUser !== infoLink.userName) {
-      setTimeout( () => navigate("/"), 3000);
-      return ( 
-        <div>
-          You have not logged in!
-          Redirecting...
-        </div>
-        ) 
-    }
-
-  else {
-    //The component starts here... 
-
-    return (
-      <div>
-         <h1>Successful login</h1>
-         <h2>Welcome {activeUser}!</h2>
-      </div>
-    )
-
+  function handleRequest(index) {
+    let elementToPass = arrayToShow[index];
+    setItemToRequest(elementToPass)
+    setDisplayRequest(true)
+  }
+  function activateSearch(searchInfo) {
+    MakeArrayToShow(searchInfo, petsList, setArrayToShow);
   }
 
+  if (!isLogged || activeUser !== infoLink.userName) {
+    setTimeout(() => navigate("/"), 3000);
+    return <div>You have not logged in! Redirecting...</div>;
+  }
+  
+  else {
+    
+    const getData = async () => {
+      axios
+        .get("https://api-pets.adaptable.app/pets")
+        .then((result) => {
+          setPetsList(result.data);
+          setArrayToShow(result.data);
+          setIsLoading(false);
+        })
+        .catch((error) => {
+          console.log("error", error);
+        });
+    };
+    const handleStart = () => {
+      setDisplayDogs(true);
+      getData();
+    };
+
+    return (
+      <div className="space-body">
+
+        {displayRequest && 
+          <SendRequest setDisplayRequest={setDisplayRequest} itemToRequest={itemToRequest} userName={infoLink.userName}/>
+        }
+
+        <h2>Welcome {activeUser}!</h2>
+        <h3>Find the perfect pet for you</h3>
+        <button onClick={handleStart}>Start my search!</button>
+
+        {displayDogs && 
+          (
+            isLoading? 
+          (
+            <div className="circle"></div>
+
+          ) : (
+
+          <div className="dogs-list">
+            <SearchBar activateSearch={activateSearch} />
+            {arrayToShow.map((characterObj, index) => {
+              return (
+                <div key={index} className="dog-item">
+                  <img src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
+                  <p>{characterObj.name}</p>
+                  <p>{characterObj.breed}</p>
+                  <p>{characterObj.age} years</p>
+                  <p>{characterObj.gender}</p>
+
+                  <div className="user-buttons">
+                    <button onClick={ () => handleRequest(index)}>Send Request</button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          )
+
+          )
+        }
+
+      </div>
+    );
+  }
 }

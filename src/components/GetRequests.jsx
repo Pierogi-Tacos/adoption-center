@@ -33,16 +33,19 @@ export default function GetRequests() {
         <div>Loading Effect</div>
       ) : ( 
         <>
+          <div className="requests-columns">
+            <div>Date</div> <div>User</div> <div>Requested</div> <div></div>
+          </div>
+
           {requestsList.map((element, index) => {
-            //Con información de id de usuario y
-            let sender = userList.filter( user => user.id == element.userId)[0]
+            let sender = userList.filter( user => user.name == element.userName)[0]
             let dogRequested = dogsList.filter ( dog => dog.id == element.dogId)[0]
             return (
-              <div className="item-request" key={index}>
+              <div key={index} className={index%2 === 0? "item-request": "item-request item-request-dark"}  >
                 <p>{element.date}</p>
-                <p>Name: {sender.name}</p> <p>Id:{sender.id}</p>
-                <p>Dog: {dogRequested.name}</p>
-                <p>{element.message}</p>
+                <p>{sender.name}</p>
+                <p>{dogRequested.name}</p>
+                <div>{element.message}</div>
               </div>
             );
           })}
