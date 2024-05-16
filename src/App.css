@@ -385,6 +385,7 @@ cursor: pointer;
 /* doesnt work - why?*/
 .search-bar{
   font-weight: 300;
+  width: 100%
 }
 
 .search-bar .card{
@@ -393,8 +394,9 @@ cursor: pointer;
   background: #eee;
   border-radius: 10px;
   
-
-
+}
+.search-bar-element{
+  width: 90%;
 }
 
 .search {
@@ -497,4 +499,12 @@ padding-top: 30px;
 .dog-details-left-col{
   text-align: left;
   
+}
+.options-admin{
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.options-admin .btn{
+margin-left: 10px;
+
 }

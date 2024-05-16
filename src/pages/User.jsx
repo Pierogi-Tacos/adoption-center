@@ -91,7 +91,7 @@ export default function User({ isLogged, activeUser }) {
                 <div className="col-md-4">
                 <div key={index} className="dog-item">
                 <div className="dog-photos card p-2 m-2 mb-3 shadow">
-                  <img className="card-img-top rounded" src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
+                  <img className="card-img-top rounded" src={characterObj.image} />
                   <h4 className="card-header font-weight-bold">{characterObj.name}</h4>
                   <div className="card-body">
                   <p className="card-subtitle mb-2 ">{characterObj.breed}</p>
@@ -101,11 +101,7 @@ export default function User({ isLogged, activeUser }) {
 
                   <div className="user-buttons admin-buttons btn-group mx-auto" role="group">
                     <button type="button" className="btn btn-secondary border border-dark" onClick={ () => handleRequest(index)}>Send Request</button>
-                    <button
-                            type="button"
-                            className="btn btn-secondary border border-dark"
-                            onClick={() => handleEdit(index)}
-                          ></button>
+                    
                   </div>
                   </div>
                   </div>

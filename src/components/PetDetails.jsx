@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 
 // export default function PetDetails({}) {
 
-const PetDetails = () => {
+const PetDetails = ({setDisplayPetDetails}) => {
 const { petId } = useParams();
 const [pet, setPet] = useState(null);
 const [error, setError] = useState(null);
@@ -51,7 +51,7 @@ console.log("Go back clicked");
       <p>Good with kids: {pet.likes_kids}</p>
       <p>Description: {pet.description}</p>
       <p>Temporary owner: {pet.owner}</p>
-      <button className="btn btn-dark" onClick={handleGoBack}>Go Back</button>
+      <button className="btn btn-dark" type="button" onClick={handleGoBack}>Go Back</button>
       </div>
       
     </div>

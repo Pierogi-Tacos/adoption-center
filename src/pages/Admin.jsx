@@ -105,14 +105,17 @@ export default function Admin({ adminLogged }) {
 
   return (
     <div>
-      <h1 className="text-danger">Welcome Admin!</h1>
+      <div className="wrapper">
+      <div className="container container-admin">
+      <h1 className="admin-hero-text text-center">Welcome, Admin!</h1>
 
-      <div className="container options-admin">
+      <div className="container options-admin p-2">
         <div className="row border-0">
           <div className="col btn btn-info w-100" onClick={handleSeeAll}>See All Pets</div>
           <div className="col btn btn-info w-100" onClick={handleAddNew}>Add New Pet</div>
           <div className="col btn btn-info w-100" onClick={handleSeeRequest}>See Requests</div>
         </div>
+      </div>
       </div>
 
       {displayNewForm &&
@@ -131,7 +134,7 @@ export default function Admin({ adminLogged }) {
             <div key={characterObj.id || index} className="col-md-4">
             <div key={index} className="dog-item">
                 <div className="dog-photos card p-2 m-2 mb-3 shadow">
-                  <img className="card-img-top rounded" src="https://thumbor.forbes.com/thumbor/fit-in/1290x/https://www.forbes.com/advisor/wp-content/uploads/2023/07/top-20-small-dog-breeds.jpeg.jpg" />
+                  <img className="card-img-top rounded" src={characterObj.image} />
                   
               
               <h4 className="card-header font-weight-bold">{characterObj.name}</h4>
@@ -162,7 +165,7 @@ export default function Admin({ adminLogged }) {
       {displayRequests && 
         <GetRequests/>
       }
-
+    </div>
     </div>
   );
 }
