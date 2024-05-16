@@ -6,11 +6,9 @@ import EditForm from "../components/EditForm";
 import MakeArrayToShow from "../components/MakeArrayToShow";
 import SearchBar from "../components/SearchBar";
 import GetRequests from "../components/GetRequests";
-import PetDetails from "../components/PetDetails";
 
 export default function Admin({ adminLogged }) {
   const navigate = useNavigate();
-
   
   if (!adminLogged) {
     setTimeout( () => navigate("/"), 3000);
@@ -83,7 +81,7 @@ export default function Admin({ adminLogged }) {
   }
 
   function handleDetails(index, petId) {
-    navigate(`/pet/${petId}`);
+    window.open(`/pet/${petId}`, '_blank');
   }
 
   function handleSeeAll() {

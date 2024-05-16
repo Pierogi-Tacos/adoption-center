@@ -42,9 +42,8 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         console.log("error", error);
       });
   };
-  const handleClose = () => {
-    setDisplayEditForm(false);
-  };
+
+  
 //onClick={() => setDisplayEditForm(false)} 
   return (  
   <div id="request-box-background">

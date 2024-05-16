@@ -24,13 +24,14 @@ export default function User({ isLogged, activeUser }) {
     setItemToRequest(elementToPass)
     setDisplayRequest(true)
   }
-  function handleEdit(index) {
-    let elementToEdit = arrayToShow[index];
-    setItemToEdit(elementToEdit);
-    setDisplayEditForm(true);
-  }
+
+  
   function activateSearch(searchInfo) {
     MakeArrayToShow(searchInfo, petsList, setArrayToShow);
+  }
+ 
+  function handleDetails(index, petId) {
+    window.open(`/pet/${petId}`, '_blank');
   }
 
   if (!isLogged || activeUser !== infoLink.userName) {
@@ -42,6 +43,8 @@ export default function User({ isLogged, activeUser }) {
     </div>
     )
   }
+  
+
   
   else {
     
@@ -78,6 +81,8 @@ export default function User({ isLogged, activeUser }) {
             setDisplayRequest={setDisplayRequest} 
           />
         )}
+
+
         <div className="hero-text">
         <h1>Welcome, {activeUser}!</h1>
         <h3>Find the perfect pet for you</h3>
@@ -111,8 +116,9 @@ export default function User({ isLogged, activeUser }) {
                   </div>
 
                   <div className="user-buttons btn-group mx-auto" role="group">
-                    <button type="button" className="btn btn-secondary user-buttons" onClick={ () => handleRequest(index)}>Send Request</button>
-                    
+                    <button type="button" className="btn btn-secondary user-buttons mx-2" onClick={ () => handleRequest(index)}>Send Request</button>
+                    <button type="button" className="btn btn-secondary user-buttons mx-2" onClick={() => handleDetails(index, characterObj.id)}> See Details</button>
+
                   </div>
                   </div>
                   </div>

@@ -4,10 +4,11 @@ import { useParams } from "react-router-dom";
 
 // export default function PetDetails({}) {
 
-const PetDetails = ({setDisplayPetDetails}) => {
+const PetDetails = () => {
 const { petId } = useParams();
 const [pet, setPet] = useState(null);
 const [error, setError] = useState(null);
+
 
 
 useEffect(() => {
@@ -22,9 +23,6 @@ useEffect(() => {
       });
   }, [petId]);
 
-  const handleGoBack = () => {
-console.log("Go back clicked");
-  };
 
   if (error) {
     return <div>Sorry, something went wrong...</div>;
@@ -51,7 +49,6 @@ console.log("Go back clicked");
       <p>Good with kids: {pet.likes_kids}</p>
       <p>Description: {pet.description}</p>
       <p>Temporary owner: {pet.owner}</p>
-      <button className="btn btn-dark" type="button" onClick={handleGoBack}>Go Back</button>
       </div>
       
     </div>
