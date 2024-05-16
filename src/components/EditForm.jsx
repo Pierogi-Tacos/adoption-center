@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest}) => {
+const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplayAllDogs}) => {
 
   //the code in lines 10-20 added because of the issue in console 
 
@@ -35,6 +35,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest}) => {
       .put(`https://api-pets.adaptable.app/pets/${newPet.id}`, newPet)
       .then(() => {
         setDisplayEditForm(false)
+        setDisplayAllDogs(false)
         alert("Changes saved!")
       })
       .catch((error) => {

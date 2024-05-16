@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const AddPetForm = ( {setDisplayNewForm}) => {
+const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
   const [newPet, setNewPet] = useState({
     name: "",
     breed: "",
@@ -31,8 +31,10 @@ const AddPetForm = ( {setDisplayNewForm}) => {
     e.preventDefault();
     axios
       .post("https://api-pets.adaptable.app/pets", newPet)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
+        alert("New Pet Added!")
+        setDisplayAllDogs(false)
+
       })
       .catch((error) => {
         console.log("error", error);

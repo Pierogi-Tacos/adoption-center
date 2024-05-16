@@ -22,39 +22,29 @@ export default function About() {
           The site connects to an API hosted at https://api-pets.adaptable.app/
           with the endpoints: /pets, /users and /requests.
         </h4>
-
-        <h4>
-            <a href="https://github.com/Pierogi-Tacos/adoption-center" target="_blank">
-              Link to App Repository
-            </a>
-        </h4>
-        <h4>
-            <a href="https://github.com/Pierogi-Tacos/api-pets" target="_blank">
-              Link to Api Repository
-            </a>
-        </h4>
-
-
-        
-
+          <div id="links-repos">
+          <a href="https://github.com/Pierogi-Tacos/adoption-center" target="_blank">App Repository</a>
+          <a href="https://github.com/Pierogi-Tacos/api-pets" target="_blank"> | Api Repository</a>
+          </div>
+      
       </div>
 
       <div id="about">
         <div className="person">
-          <h2>Magda</h2>
+          <h2>Magdalena Korgul</h2>
           <h3>Web-Developer in process</h3>
           <h4>
             <a href="https://github.com/magdakorgul" target="_blank">
-              Link to Github
+              Github
             </a>
           </h4>
         </div>
         <div className="person">
-          <h2>Jesús</h2>
+          <h2>Jesús Suaste</h2>
           <h3>Web-Developer in process</h3>
           <h4>
             <a href="https://github.com/suastech" target="_blank">
-              Link to Github
+              Github
             </a>
           </h4>
         </div>

@@ -65,6 +65,7 @@ export default function Admin({ adminLogged }) {
       .then((response) => {
           console.log(response)
           setConfirmDelete(false)
+          setDisplayAllDogs(false)
           alert("Item Deleted")
         }
       )
@@ -155,11 +156,11 @@ export default function Admin({ adminLogged }) {
       </div>
 
       {displayNewForm &&
-      <AddPetForm setDisplayNewForm={setDisplayNewForm}/>
+      <AddPetForm setDisplayNewForm={setDisplayNewForm} setDisplayAllDogs={setDisplayAllDogs}/>
       } 
 
       {displayEditForm && (
-        <EditForm itemToEdit={petsList[indexElementToEdit]} setDisplayEditForm={setDisplayEditForm} />
+        <EditForm itemToEdit={petsList[indexElementToEdit]} setDisplayEditForm={setDisplayEditForm} setDisplayAllDogs={setDisplayAllDogs} />
       )}
 
       {displayAllDogs &&
@@ -200,7 +201,6 @@ export default function Admin({ adminLogged }) {
       {displayRequests && 
         <GetRequests/>
       }
-    </div>
     </div>
   );
 }
