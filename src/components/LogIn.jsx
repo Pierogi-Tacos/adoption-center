@@ -33,7 +33,7 @@ export default function LogIn( {setIsLogged, setActiveUser, setAdminLogged}) {
     <form onSubmit={handleLogIn} id="login-form" style={{display:"flex", flexDirection:"column"}}>
       <input name="name" type="text" placeholder="User name" />
       <input name="password" type="text" placeholder="Password"/>
-      <button type="submit" className="btn btn-danger">Log in</button>
+      <button type="submit" className="btn btn-login">Log in</button>
     </form>
   )
 }

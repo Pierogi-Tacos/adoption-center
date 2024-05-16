@@ -61,7 +61,7 @@ export default function SearchBar( {activateSearch}) {
   return ( 
     <form className="search-bar container" onSubmit={handleSubmitSearch}>
       <div className="row d-flex justify-content">
-      <div className=" search-bar-element">
+      <div className=" search-bar-element col-md-12">
         <div className="card p-4 mt-3">
           <h3 className="heading mt-2 heading-search">Find your dog!</h3>
 

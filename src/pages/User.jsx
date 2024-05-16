@@ -83,7 +83,7 @@ export default function User({ isLogged, activeUser }) {
         )}
 
 
-        <div className="hero-text">
+        <div style={{textAlign:"center"}}>
         <h1>Welcome, {activeUser}!</h1>
         <h3>Find the perfect pet for you</h3>
         <button className="btn btn-dark user-start-search" onClick={handleStart}>Start my search!</button>
@@ -100,11 +100,11 @@ export default function User({ isLogged, activeUser }) {
 
           ) : (
 
-          <div className="dogs-list container">
+          <div className="dogs-list dogs-list-user container">
             <SearchBar activateSearch={activateSearch} />
             {arrayToShow.map((characterObj, index) => {
               return (
-                <div className="col-md-4">
+                <div className="col-md-4 cards-user">
                 <div key={index} className="dog-item">
                 <div className="dog-photos card p-2 m-2 mb-3 shadow">
                   <img className="card-img-top rounded" src={characterObj.image} />

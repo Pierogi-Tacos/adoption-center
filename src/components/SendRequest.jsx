@@ -44,7 +44,7 @@ export default function SendRequest({setDisplayRequest, itemToRequest, userName}
         <h4>Sender: {userName}</h4>
         <h4>Intested in: {itemToRequest.name}</h4>
         <textarea rows="6" cols="70" name="message" id='text-area-space' onChange={handleText}></textarea>
-        <button onClick={handleSend}>Send Request</button>
+        <button className="btn btn-dark classic-button" onClick={handleSend}>Send Request</button>
       </div>
       :
       <div className="request-box">
