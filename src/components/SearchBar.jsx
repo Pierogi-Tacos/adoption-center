@@ -60,13 +60,14 @@ export default function SearchBar( {activateSearch}) {
 
   return ( 
     <form className="search-bar container" onSubmit={handleSubmitSearch}>
-      <div className="row d-flex justify-content">
-      <div className=" search-bar-element col-md-12">
+      <div className="row">
+      <div className="col-lg-12">
         <div className="card p-4 mt-3">
           <h3 className="heading mt-2 heading-search">Find your dog!</h3>
 
          
-          
+          <div className="row"></div>
+          <div className="col-lg-8 col-md-8 col-sm-12"></div>
           <div className="search-top">
            <div className="search col-md-8">
            <input className="search-input" id="search-field" onChange={handleInputSearch} name="search" type="text" placeholder="Introduce a name, a city or breed"></input>

@@ -13,7 +13,7 @@ export default function Admin({ adminLogged }) {
   if (!adminLogged) {
     setTimeout( () => navigate("/"), 3000);
     return ( 
-      <div className="main-content-page">
+      <div style={{textAlign:"center"}} className="main-content-page">
         <h1>You have not logged in!</h1>
         <h1>Redirecting...</h1>
       </div>
@@ -131,9 +131,10 @@ export default function Admin({ adminLogged }) {
       
       {confirmDelete && 
           <div id="delete-confirmation">
-            <h2>Do you really want to delete this element?</h2>
-            <button className="btn btn-secondary border border-dark" onClick={() => setConfirmDelete(false)}>Back</button>
-            <button className="btn btn-secondary border border-dark" style={{marginLeft:"10px"}} onClick={deleteConfirmed}>Delete</button>
+            <h2>Do you want to delete this element?</h2>
+            <div className="delete-conf-buttons"><button className="btn btn-secondary" onClick={() => setConfirmDelete(false)}>Back</button>
+            <button className="btn btn-secondary" onClick={deleteConfirmed}>Delete</button>
+          </div>
           </div>
       }
 
@@ -143,7 +144,7 @@ export default function Admin({ adminLogged }) {
 
 
           <div className="container options-admin p-2">
-            <div className="row border-0">
+            <div className="row border-0 ">
               <div className="col btn mx-3 admin-options-btn" onClick={handleSeeAll}>See All Pets</div>
               <div className="col btn mx-3 admin-options-btn" onClick={handleAddNew}>Add New Pet</div>
               <div className="col btn mx-3 admin-options-btn" onClick={handleSeeRequest}>See Requests</div>
@@ -164,10 +165,10 @@ export default function Admin({ adminLogged }) {
       {displayAllDogs &&
       <div className="dogs-list container">
         <SearchBar activateSearch={activateSearch}/>
-        <h3>Showing: {arrayToShow.length} dogs </h3>
+        <h3 className="showing-text">Showing: {arrayToShow.length} dogs </h3>
         {arrayToShow.map((characterObj, index) => {
           return (
-            <div key={characterObj.id || index} className="col-md-4">
+            <div key={characterObj.id || index} className="col-md-4 cards-admin">
             <div key={index} className="dog-item">
                 <div className="dog-photos card p-2 m-2 mb-3 shadow">
                   <img className="card-img-top rounded" src={characterObj.image} />

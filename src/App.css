@@ -74,13 +74,23 @@ header img {
 nav {
   width: fit-content;
   display: flex;
-  margin-right: 10px;
+  margin-right: 20px;
+  
 }
 
 .link-nav {
   font-size: 20px;
-  margin: 0 5px;
+  margin: 0 10px;
   color: white;
+}
+.logo{
+  height: 70px;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+.header-element{
+  height: 70px;
 }
 
 .main-content-page {
@@ -162,7 +172,7 @@ width: 50%;
   width: 70%;
   align-items: center;
   font-size: 18px;
-  background-color: rgb(0, 0, 41);
+  background-color: rgb(41, 8, 0);
   color: white;
   margin: 0 auto;
 }
@@ -192,7 +202,7 @@ width: 50%;
 .item-request button {
   border-radius: 10px;
   border: none;
-  background-color: rgb(106, 106, 106);
+  background-color: rgb(83, 25, 0);
   padding: 5px 14px;
   color: white;
   flex: 1;
@@ -217,6 +227,11 @@ z-index: 9;
 #admin-form-info {
   width: 100%;
   
+}
+.showing-text{
+  margin-left: 25px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
@@ -261,9 +276,17 @@ padding: 5px 20px;
   left: 50%;
   top:50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
   background-color: rgb(203, 203, 203);
   z-index: 4;
+  padding: 20px 30px 50px 20px;
+  
+}
+#delete-confirmation button{
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.delete-conf-buttons{
+  padding-left: 170px;
 }
 
 .loading-effect {
@@ -345,19 +368,25 @@ cursor: pointer;
   margin: 0 auto;
 
 }
-.footer {
+.footer-class {
   background-color: #333;
   color: #fff;
-  padding: 20px;
-  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
 }
 
 .social-icons {
   margin-bottom: 20px;
+  color: #ececec;
+  margin-top: 10px;
+  margin-right: 10px;
 }
 
 .social-icons a {
   margin-right: 10px;
+  margin-left: 10px;
 }
 
 .social-icons img {
@@ -368,6 +397,8 @@ cursor: pointer;
 .footer-text {
   font-size: 14px;
 }
+  
+
 
 .request-details {
   width: 60vw;
@@ -543,11 +574,16 @@ cursor: pointer;
   color: #eee;
 }
 
-
+.dog-details{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .dog-details img{
   border-radius: 20px;
   width: 90%;
   height: auto;
+
 
 }
 .user-buttons{
@@ -562,6 +598,14 @@ padding-top: 30px;
 .dog-details-text button{
   margin-top: 30px;
 }
+.dog-details-text h2{
+  margin-bottom: 30px;
+  font-size: 40px;
+}
+.dog-details-text p{
+  font-size: 16px;
+  line-height: 1.6;
+}
 .dog-details-left-col{
   text-align: left;
   
@@ -574,7 +618,7 @@ padding-top: 30px;
 .options-admin .btn{
 margin-left: 10px;
 background-color: #160D08;
-color: #b8ad9d;
+color: #cec3b2;
 
 }
 .admin-options-btn{
@@ -609,6 +653,8 @@ height: 40px;
 }
 
 @media screen and (max-width: 800px) {
+
+  
   header h1 {
     display: none;
   }
@@ -619,4 +665,45 @@ height: 40px;
     margin-left: 20px;
     padding-bottom: 10px;
   }
+
+  .main-content-page h1{
+    margin: 20px;
+    padding-right: 20px;
+  }
+  
+  .logo{
+    margin-top: 10px;
+  }
+  .title{
+    display: none;
+  }
+  nav{
+    margin-right: 30px;
+  }
+  .search-bar{
+    max-width: 350px;
+  }
+  .search-gender-select{
+    margin-bottom: 10px;
+  }
+  .cards-user{
+    width: 300px;
+  }
+  .cards-admin{
+    width: 315px;
+  }
+  
+  .dog-photos img{
+    width: 260px;
+  }
+  
+.admin-options-btn{
+margin: 10px;
+}
+.item-request button{
+  width: 50px;
+  height: 40px;
+  font-size: 10px;
+}
+
 }

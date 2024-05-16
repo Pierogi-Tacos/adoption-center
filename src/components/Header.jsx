@@ -1,14 +1,13 @@
-import logo from "../background.jpg"
 import NavBar from "../components/NavBar";
 
 export default function Header  () {
 
   return (
-    <header className="d-flex align-items-center w-100">
+    <header className="d-flex align-items-center w-100 header-element">
 
       <div style={{display:"flex"}}>
-        <img src={logo} alt="Logo" className="logo" />
-        <h1 className="title">Dog Shelter</h1>
+        <img src="src/images/charity-dog-svgrepo-com.svg" alt="Logo" className="logo" />
+        <h3 className="title">Adoption center</h3>
       </div>
 
       <NavBar />

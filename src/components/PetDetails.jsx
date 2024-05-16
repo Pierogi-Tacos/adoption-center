@@ -36,19 +36,20 @@ useEffect(() => {
     <div className="row">
     <div className="col-7 dog-details-left-col">
         <img src={pet.image} alt="" />
-<h2>{pet.name}</h2>
+
 
 </div>
 <div className="col-5 dog-details-text">
-      <p>Age: {pet.age}</p>
-      <p>Breed: {pet.breed}</p>
-      <p>Size: {pet.size}</p>
-      <p>Gender: {pet.gender}</p>
-      <p>Location: {pet.location} </p>
-      <p>Vaccination: {pet.vaccination}</p>
-      <p>Good with kids: {pet.likes_kids}</p>
-      <p>Description: {pet.description}</p>
-      <p>Temporary owner: {pet.owner}</p>
+      <h2>{pet.name}</h2>
+      <p><b>Age:</b> {pet.age}</p>
+      <p><b>Breed:</b> {pet.breed}</p>
+      <p><b>Size:</b> {pet.size}</p>
+      <p><b>Gender:</b> {pet.gender}</p>
+      <p><b>Location:</b> {pet.location} </p>
+      <p><b>Vaccination:</b> {pet.vaccination}</p>
+      <p><b>Good with kids:</b> {pet.likes_kids}</p>
+      <p><b>Description:</b> {pet.description}</p>
+      <p><b>Temporary owner:</b> {pet.owner}</p>
       </div>
       
     </div>

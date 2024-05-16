@@ -50,7 +50,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
     <form onSubmit={handleSubmit} className="edit-form row border rounded" id="form-admin-edit" style={ {backgroundColor:'white', margin:"0px auto", width:"90%"}}>
    
    <div className="form-row form-edit mx-auto p-3" id="admin-form-info">
-   <button className="btn btn-dark" type="button" onClick={() => setDisplayEditForm(false)}>Close</button>
+   {/* <button className="btn btn-dark" type="button" onClick={() => setDisplayEditForm(false)}>Close</button> */}
    <legend>Edit Pet's Information</legend>
 
     <div className="col-md-5 mb-3 px-4">
@@ -203,10 +203,10 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
       </div>
       {/* </div> */}
 
-      <div className="col-md-6 mb-3 px-4">
+      {/* <div className="col-md-6 mb-3 px-4">
         <label className="col-form-label" htmlFor="image">Image URL</label>
         {/* <div className="col-sm-9"> */}
-        <input
+        {/* <input
           className="form-control"
           type="url"
           name="image"
@@ -214,18 +214,18 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
           onChange={handleChange}
           placeholder={newPet.image}
         />
-       </div>
+       </div>  */}
        {/* </div> */}
-       <div className="mb-3 px-4">
+       {/* <div className="mb-3 px-4">
       <label className="form-label" htmlFor="imageFile">Upload Image</label>
       <div className="custom-file">
       <input className="custom-file-input" type="file" accept="image/*" onChange={handleImageUpload} />
       <label className="custom-file-label" htmlFor="imageFile">Choose file</label>
       </div>
-      </div>
+      </div> */}
       <div className="col-12 pt-4 mb-3 px-4">
       <button className="btn btn-info" type="submit">Save Changes</button>
-      <button className="btn btn-info" style={{marginLeft:"20px"}} onClick={() => setDisplayEditForm(false)}>Back</button>
+      <button className="btn btn-dark" style={{marginLeft:"20px"}} onClick={() => setDisplayEditForm(false)}>Back</button>
 
       </div>
    </div>
