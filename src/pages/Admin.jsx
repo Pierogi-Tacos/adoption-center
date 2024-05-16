@@ -1,4 +1,4 @@
-import { useState, useEffect, handleClick } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AddPetForm from "../components/AddPetForm";
 import axios from "axios";
@@ -8,17 +8,17 @@ import SearchBar from "../components/SearchBar";
 import GetRequests from "../components/GetRequests";
 
 export default function Admin({ adminLogged }) {
-  /* const navigate = useNavigate();
+  const navigate = useNavigate();
 
   if (!adminLogged) {
     setTimeout( () => navigate("/"), 3000);
     return ( 
-      <div>
-        You have not logged in!
-        Redirecting...
+      <div className="main-content-page">
+        <h1>You have not logged in!</h1>
+        <h1>Redirecting...</h1>
       </div>
       ) 
-  } */
+  } 
 
   // The real component starts here
   const [petsList, setPetsList] = useState([]);
@@ -43,7 +43,6 @@ export default function Admin({ adminLogged }) {
         console.log("error", error);
       });
   }, []);
-
 
   const [indexToDelete, setIndexToDelete] = useState()
   const [idToDelete, setIdToDelete] = useState();
@@ -122,6 +121,8 @@ export default function Admin({ adminLogged }) {
 
   return (
     <div className="main-content-page" style={ displayAllDogs || displayNewForm ? {background:'none'}:{} } >
+      
+      
       {confirmDelete && 
           <div id="delete-confirmation">
             <h2>Do you really want to delete this element?</h2>

@@ -85,8 +85,8 @@ nav {
   min-height: 80vh;
   height: fit-content;
   position: relative;
-  background-image: url("./background3.jpg");
-  background-size: cover;
+/*   background-image: url("./background3.jpg");
+ */  background-size: cover;
 
 }
 
@@ -237,13 +237,21 @@ padding: 5px 20px;
   z-index: 4;
 }
 
+.loading-effect {
+  position: absolute;
+  top:20%; 
+  left:50%; 
+  translate: transform(-50%, -50%);
+}
+
 .circle {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   border: 4px solid rgba(0, 123, 255, 0.3); /* Borde transparente */
   border-radius: 50%; /* Forma de círculo */
   border-top: 4px solid #007bff; /* Borde superior azul */
   animation: spin 1s linear infinite; /* Animación de rotación */
+
   }
 @keyframes spin {
   0% { transform: rotate(0deg); }
@@ -471,4 +479,22 @@ cursor: pointer;
   background-color: rgb(191, 191, 191);
 cursor: pointer;
 
+}
+
+#about-info {
+  margin-top: 40px;
+}
+#about-info h4 {
+  text-align: center;
+  margin: 20px 10px;
+  font-size: 20px;
+}
+
+#about {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.person {
+  margin-top: 10px;
 }

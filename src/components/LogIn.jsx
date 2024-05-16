@@ -19,6 +19,7 @@ export default function LogIn( {setIsLogged, setActiveUser, setAdminLogged}) {
       else {
       setIsLogged(true);
       setActiveUser(name);
+      setAdminLogged(false);
       navigate(`/user/${name}`);
       }
     }
