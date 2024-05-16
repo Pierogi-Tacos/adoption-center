@@ -85,17 +85,16 @@ nav {
   min-height: 80vh;
   height: fit-content;
   position: relative;
-background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./dogs.jpg");
- 
-  background-position: center;
+  background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./dogs.jpg");
+  background-size: cover;
   background-repeat: no-repeat;
+  
 
 }
 .hero-text{
   text-align: center;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
+  color: rgb(221, 221, 221);
+  
 }
 
 .home-content {
@@ -199,6 +198,10 @@ z-index: 9;
 }
 #admin-form-info {
   width: 100%;
+  
+}
+.admin-buttons button {
+  
   
 }
 .request-box {
@@ -493,6 +496,12 @@ cursor: pointer;
 }
 /* User view styling */
 
+.user-start-search{
+  margin-top: 20px;
+  width: 160px;
+  height: 40px;
+}
+
 .hero-text{
   background-position: center;
   background-repeat: no-repeat;
@@ -501,17 +510,18 @@ cursor: pointer;
   color: #eee;
 }
 
-/* doesn't work centering*/
-.dog-details{
-  margin: auto;
-  width: 50%;
-}
+
 .dog-details img{
   border-radius: 20px;
   width: 90%;
   height: auto;
 
 }
+.user-buttons{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 
 .dog-details-text{
 padding-top: 30px;
@@ -526,9 +536,12 @@ padding-top: 30px;
 .options-admin{
   margin-top: 30px;
   margin-bottom: 20px;
+  
 }
 .options-admin .btn{
 margin-left: 10px;
+background-color: #160D08;
+color: #b8ad9d;
 
 }
 

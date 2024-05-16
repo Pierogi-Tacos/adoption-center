@@ -81,7 +81,7 @@ export default function User({ isLogged, activeUser }) {
         <div className="hero-text">
         <h1>Welcome, {activeUser}!</h1>
         <h3>Find the perfect pet for you</h3>
-        <button className="btn btn-dark" onClick={handleStart}>Start my search!</button>
+        <button className="btn btn-dark user-start-search" onClick={handleStart}>Start my search!</button>
         </div>
 
         {displayDogs && 
@@ -110,8 +110,8 @@ export default function User({ isLogged, activeUser }) {
                   <span>{characterObj.gender}</span></span>
                   </div>
 
-                  <div className="user-buttons admin-buttons btn-group mx-auto" role="group">
-                    <button type="button" className="btn btn-secondary border border-dark" onClick={ () => handleRequest(index)}>Send Request</button>
+                  <div className="user-buttons btn-group mx-auto" role="group">
+                    <button type="button" className="btn btn-secondary user-buttons" onClick={ () => handleRequest(index)}>Send Request</button>
                     
                   </div>
                   </div>
