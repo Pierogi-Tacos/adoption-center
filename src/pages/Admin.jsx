@@ -146,9 +146,9 @@ export default function Admin({ adminLogged }) {
 
           <div className="container options-admin p-2">
             <div className="row border-0">
-              <div className="col btn btn-info w-100 mx-3" onClick={handleSeeAll}>See All Pets</div>
-              <div className="col btn btn-info w-100 mx-3" onClick={handleAddNew}>Add New Pet</div>
-              <div className="col btn btn-info w-100 mx-3" onClick={handleSeeRequest}>See Requests</div>
+              <div className="col btn mx-3 admin-options-btn" onClick={handleSeeAll}>See All Pets</div>
+              <div className="col btn mx-3 admin-options-btn" onClick={handleAddNew}>Add New Pet</div>
+              <div className="col btn mx-3 admin-options-btn" onClick={handleSeeRequest}>See Requests</div>
             </div>
           </div>
 
@@ -185,8 +185,8 @@ export default function Admin({ adminLogged }) {
                 <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDetails(index, characterObj.id)}>Details</button>
                 
                 
-                <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleEdit(index)}>Edit</button>
-                <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDelete(index,characterObj.id)}>
+                <button type="button" className="btn btn-secondary border border-dark admin-buttons" onClick={() => handleEdit(index)}>Edit</button>
+                <button type="button" className="btn btn-secondary border border-dark admin-buttons" onClick={() => handleDelete(index,characterObj.id)}>
                   Delete
                 </button>
                 </div>
@@ -202,6 +202,7 @@ export default function Admin({ adminLogged }) {
         <GetRequests/>
       }
     </div>
+    
   );
 }
 
