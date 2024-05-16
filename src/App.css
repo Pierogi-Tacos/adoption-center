@@ -88,13 +88,12 @@ nav {
   background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./dogs.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  
+  padding-top: 20px;
 
 }
 .hero-text{
   text-align: center;
   color: rgb(221, 221, 221);
-  
 }
 
 .home-content {
@@ -251,8 +250,8 @@ padding: 5px 20px;
 
 .loading-effect {
   position: absolute;
-  top:20%; 
-  left:50%; 
+  top:50%; 
+  left:46%; 
   translate: transform(-50%, -50%);
   color: white;
 }

@@ -125,10 +125,7 @@ export default function Admin({ adminLogged }) {
 
   return (
     <div className="main-content-page" style={ displayAllDogs || displayNewForm ? {background:'none'}:{} } >
-      
-
-    
-      
+            
       {confirmDelete && 
           <div id="delete-confirmation">
             <h2>Do you really want to delete this element?</h2>
