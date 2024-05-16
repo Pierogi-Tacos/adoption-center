@@ -1,4 +1,4 @@
-import { useState, useEffect, handleClick } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import AddPetForm from "../components/AddPetForm";
 import axios from "axios";
@@ -10,17 +10,18 @@ import PetDetails from "../components/PetDetails";
 
 export default function Admin({ adminLogged }) {
   const navigate = useNavigate();
-  /* const navigate = useNavigate();
 
+  
   if (!adminLogged) {
     setTimeout( () => navigate("/"), 3000);
     return ( 
-      <div>
-        You have not logged in!
-        Redirecting...
+      <div className="main-content-page">
+        <h1>You have not logged in!</h1>
+        <h1>Redirecting...</h1>
       </div>
       ) 
-  } */
+  } 
+  
 
   // The real component starts here
   const [petsList, setPetsList] = useState([]);
@@ -32,6 +33,7 @@ export default function Admin({ adminLogged }) {
   const [displayNewForm, setDisplayNewForm] = useState(false)
   const [displayAllDogs, setDisplayAllDogs] = useState(false)
   const [displayRequests, setDisplayRequests] = useState(false)
+  const [confirmDelete, setConfirmDelete] = useState(false)
 
   useEffect(() => {
     axios
@@ -45,14 +47,33 @@ export default function Admin({ adminLogged }) {
       });
   }, []);
 
+  const [indexToDelete, setIndexToDelete] = useState()
+  const [idToDelete, setIdToDelete] = useState();
+
   function handleDelete(index, petId) {
+    setIndexToDelete(index)
+    setIdToDelete(petId)
+    setConfirmDelete(true)
+  }
+
+  function deleteConfirmed() {
     const newList = [...petsList];
-    newList.splice(index, 1);
+    newList.splice(indexToDelete, 1);
     setPetsList(newList);
-    axios
-      .delete("https://api-pets.adaptable.app/pets/" + petId)
-      .then((response) => console.log(response))
-      .catch((error) => console.log(error));
+
+    axios.delete("https://api-pets.adaptable.app/pets/" + idToDelete)
+      .then((response) => {
+          console.log(response)
+          setConfirmDelete(false)
+          alert("Item Deleted")
+        }
+      )
+      .catch((error) => {
+        console.log(error)
+        alert("It was not possible to delete the item")
+        setConfirmDelete(false)
+      }
+      )
   }
 
   function handleEdit(index) {
@@ -104,22 +125,37 @@ export default function Admin({ adminLogged }) {
   // getLocation()
 
   return (
-    <div>
-      <div className="wrapper">
-      <div className="container container-admin">
-      <h1 className="admin-hero-text text-center">Welcome, Admin!</h1>
+    <div className="main-content-page" style={ displayAllDogs || displayNewForm ? {background:'none'}:{} } >
+      
 
-      <div className="container options-admin p-2">
-        <div className="row border-0">
-          <div className="col btn btn-info w-100" onClick={handleSeeAll}>See All Pets</div>
-          <div className="col btn btn-info w-100" onClick={handleAddNew}>Add New Pet</div>
-          <div className="col btn btn-info w-100" onClick={handleSeeRequest}>See Requests</div>
+    
+      
+      {confirmDelete && 
+          <div id="delete-confirmation">
+            <h2>Do you really want to delete this element?</h2>
+            <button className="btn btn-secondary border border-dark" onClick={() => setConfirmDelete(false)}>Back</button>
+            <button className="btn btn-secondary border border-dark" style={{marginLeft:"10px"}} onClick={deleteConfirmed}>Delete</button>
+          </div>
+      }
+
+      <div className="wrapper">
+        <div className="container container-admin">
+          <h1 className="admin-hero-text text-center">Welcome, Admin!</h1>
+
+
+          <div className="container options-admin p-2">
+            <div className="row border-0">
+              <div className="col btn btn-info w-100 mx-3" onClick={handleSeeAll}>See All Pets</div>
+              <div className="col btn btn-info w-100 mx-3" onClick={handleAddNew}>Add New Pet</div>
+              <div className="col btn btn-info w-100 mx-3" onClick={handleSeeRequest}>See Requests</div>
+            </div>
+          </div>
+
         </div>
-      </div>
       </div>
 
       {displayNewForm &&
-      <AddPetForm />
+      <AddPetForm setDisplayNewForm={setDisplayNewForm}/>
       } 
 
       {displayEditForm && (
@@ -129,13 +165,13 @@ export default function Admin({ adminLogged }) {
       {displayAllDogs &&
       <div className="dogs-list container">
         <SearchBar activateSearch={activateSearch}/>
+        <h3>Showing: {arrayToShow.length} dogs </h3>
         {arrayToShow.map((characterObj, index) => {
           return (
             <div key={characterObj.id || index} className="col-md-4">
             <div key={index} className="dog-item">
                 <div className="dog-photos card p-2 m-2 mb-3 shadow">
                   <img className="card-img-top rounded" src={characterObj.image} />
-                  
               
               <h4 className="card-header font-weight-bold">{characterObj.name}</h4>
               <div className="card-body">
@@ -144,13 +180,12 @@ export default function Admin({ adminLogged }) {
               <span>{characterObj.gender}</span></span>
               </div>
               
-
               <div className="admin-buttons btn-group mx-auto" role="group">
                 <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDetails(index, characterObj.id)}>Details</button>
                 
                 
                 <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleEdit(index)}>Edit</button>
-                <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDelete(index, characterObj.id)}>
+                <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDelete(index,characterObj.id)}>
                   Delete
                 </button>
                 </div>

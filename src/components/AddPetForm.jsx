@@ -1,8 +1,7 @@
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const AddPetForm = () => {
+const AddPetForm = ( {setDisplayNewForm}) => {
   const [newPet, setNewPet] = useState({
     name: "",
     breed: "",
@@ -41,7 +40,7 @@ const AddPetForm = () => {
   };
 
   return (  
-    <form onSubmit={handleSubmit} className="edit-form row">
+    <form onSubmit={handleSubmit} className="edit-form row" style={{margin:'30px 0'}}>
       <div className="form-row form-edit mx-auto p-3 border rounded">
    <legend>Add Pet's Information</legend>
 
@@ -198,6 +197,8 @@ const AddPetForm = () => {
       </div>
       <div className="col-12 pt-4 mb-3 px-4">
       <button className="btn btn-info" type="submit"> Add a new pet </button>
+      <button className="btn btn-info" style={{marginLeft:"20px"}} onClick={() => setDisplayNewForm(false)}>Back</button>
+
       </div>
       </div>
     </form>

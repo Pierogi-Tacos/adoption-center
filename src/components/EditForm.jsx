@@ -33,8 +33,9 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest}) => {
     e.preventDefault();
     axios
       .put(`https://api-pets.adaptable.app/pets/${newPet.id}`, newPet)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
+        setDisplayEditForm(false)
+        alert("Changes saved!")
       })
       .catch((error) => {
         console.log("error", error);
@@ -224,6 +225,8 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest}) => {
       </div>
       <div className="col-12 pt-4 mb-3 px-4">
       <button className="btn btn-info" type="submit">Save Changes</button>
+      <button className="btn btn-info" style={{marginLeft:"20px"}} onClick={() => setDisplayEditForm(false)}>Back</button>
+
       </div>
    </div>
 

@@ -35,7 +35,12 @@ export default function User({ isLogged, activeUser }) {
 
   if (!isLogged || activeUser !== infoLink.userName) {
     setTimeout(() => navigate("/"), 3000);
-    return <div>You have not logged in! Redirecting...</div>;
+    return (
+    <div className="main-content-page">
+    <h1>You have not logged in!</h1>
+    <h1>Redirecting...</h1>
+    </div>
+    )
   }
   
   else {
@@ -46,7 +51,10 @@ export default function User({ isLogged, activeUser }) {
         .then((result) => {
           setPetsList(result.data);
           setArrayToShow(result.data);
-          setIsLoading(false);
+          setTimeout(() => {
+            setIsLoading(false);
+
+          }, 1000);
         })
         .catch((error) => {
           console.log("error", error);
@@ -80,7 +88,10 @@ export default function User({ isLogged, activeUser }) {
           (
             isLoading? 
           (
-            <div className="circle"></div>
+            <div className="loading-effect">
+             <div className="circle"></div>
+              <h2>Loading...</h2>
+            </div>
 
           ) : (
 
