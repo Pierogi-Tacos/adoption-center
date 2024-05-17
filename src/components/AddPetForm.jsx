@@ -22,10 +22,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
     setNewPet(newObject);
   }
 
-  function handleImageUpload() {
-    console.log("logic to create the image");
-  }
-
+  
   const handleSubmit = (e) => {
     console.log("handleSubmit activated");
     e.preventDefault();
@@ -33,6 +30,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
       .post("https://api-pets.adaptable.app/pets", newPet)
       .then(() => {
         alert("New Pet Added!")
+        setDisplayNewForm(false)
         setDisplayAllDogs(false)
 
       })
@@ -55,7 +53,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         value={newPet.name}
         onChange={handleChange}
         placeholder="Enter pet's name"
-        /* required */
+        required
       />
       </div>
 
@@ -68,7 +66,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         value={newPet.breed}
         onChange={handleChange}
         placeholder="Enter pet's breed"
-        /* required */
+        required
       />
       </div>
 
@@ -81,6 +79,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         value={newPet.age}
         onChange={handleChange}
         placeholder="Enter pet's age"
+        min={0}
       />
       </div>
 
@@ -93,7 +92,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         value={newPet.location}
         onChange={handleChange}
         placeholder="Enter location"
-        /* required */
+        required
       />
       </div>
 
@@ -103,7 +102,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
       className="form-control"
         name="vaccination"
         value={newPet.vaccination}
-        onChange={handleChange} /* required */
+        onChange={handleChange} required
       >
         <option value="" disabled></option>
         <option value={true}>Yes</option>
@@ -117,7 +116,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
       className="form-control"
         name="gender"
         value={newPet.gender}
-        onChange={handleChange} /* required */
+        onChange={handleChange} required
       >
         <option value="" disabled></option>
         <option value="Male">Male</option>
@@ -131,7 +130,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
       className="form-control"
         name="size"
         value={newPet.size}
-        onChange={handleChange} /* required */
+        onChange={handleChange} required
       >
         <option value="" disabled></option>
         <option value={"small"}>Small</option>
@@ -146,7 +145,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
       className="form-control"
         name="likes_kids"
         value={newPet.likes_kids}
-        onChange={handleChange} /*/* required */
+        onChange={handleChange} required
       >
         <option value={""} disabled></option>
         <option value={true}>Yes</option>
@@ -162,11 +161,11 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         value={newPet.description}
         onChange={handleChange}
         placeholder="Enter pet's description"
-        /* required */
+        required
       />
       </div>
 
-      <div className="col-md-4 mb-3 px-4">
+     {/*  <div className="col-md-4 mb-3 px-4">
       <label className="col-form-label" htmlFor="owner">Owner</label>
       <input
        className="form-control"
@@ -176,9 +175,9 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         onChange={handleChange}
         placeholder="Enter owner's name"
       />
-      </div>
+      </div> */}
 
-      {/* <div className="col-md-6 mb-3 px-4">
+      <div className="col-md-6 mb-3 px-4">
       <label className="col-form-label" htmlFor="image">Image URL</label>
       <input
       className="form-control"
@@ -187,8 +186,9 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         value={newPet.image}
         onChange={handleChange}
         placeholder="Enter image URL"
+        required
       />
-      </div> */}
+      </div>
 
       {/* <div className="mb-3 px-4">
     <label className="form-label" htmlFor="imageFile">Upload Image</label>

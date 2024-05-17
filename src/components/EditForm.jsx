@@ -63,7 +63,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
           value={newPet.name}
           onChange={handleChange}
           placeholder={newPet.name}
-          /* required */
+          required
         />
         <small className="form-text"></small>
     </div>
@@ -80,7 +80,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         value={newPet.breed}
         onChange={handleChange}
         placeholder={newPet.breed}
-        /* required */
+        required
       />
     </div>
     {/* </div> */}
@@ -92,9 +92,11 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         className="form-control"
         type="number"
         name="age"
+        min= {0}
         value={newPet.age}
         onChange={handleChange}
         placeholder={newPet.age}
+        required
       />
     </div>
     {/* </div> */}
@@ -109,7 +111,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         value={newPet.location}
         onChange={handleChange}
         placeholder={newPet.location}
-        /* required */
+        required
       />
     </div>
     {/* </div> */}
@@ -121,7 +123,8 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         className="form-control"
         name="vaccination"
         value={newPet.vaccination}
-        onChange={handleChange} /* required */
+        onChange={handleChange}
+        required
       >
         <option value={true}>Yes</option>
         <option value={false}>No</option>
@@ -136,7 +139,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         className="form-control"
         name="gender"
         value={newPet.gender}
-        onChange={handleChange} /* required */
+        onChange={handleChange} required
       >
         <option value="Male">Male</option>
         <option value="Female">Female</option>
@@ -151,7 +154,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
         className="form-control"
         name="size"
         value={newPet.size}
-        onChange={handleChange} /* required */
+        onChange={handleChange} required
       >
         <option value={"small"}>Small</option>
         <option value={"medium"}>Medium</option>
@@ -167,7 +170,7 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
           className="form-control"
           name="likes_kids"
           value={newPet.likes_kids}
-          onChange={handleChange} /*/* required */
+          onChange={handleChange} required
         >
           <option value={true}>Yes</option>
           <option value={false}>No</option>
@@ -184,24 +187,13 @@ const EditForm = ({itemToEdit, setDisplayEditForm, setDisplayRequest, setDisplay
           value={newPet.description}
           onChange={handleChange}
           placeholder={newPet.description}
-          /* required */
+          required
         />
        </div>
        {/* </div> */}
 
-      <div className="col-md-4 mb-3 px-4">
-        <label className="col-form-label" htmlFor="owner">Owner</label>
-        {/* <div className="col-sm-7"> */}
-        <input
-          className="form-control"
-          type="text"
-          name="owner"
-          value={newPet.owner}
-          onChange={handleChange}
-          placeholder={newPet.owner}
-        />
-      </div>
-      {/* </div> */}
+    
+      
 
       {/* <div className="col-md-6 mb-3 px-4">
         <label className="col-form-label" htmlFor="image">Image URL</label>
