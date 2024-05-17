@@ -1,4 +1,5 @@
 import NavBar from "../components/NavBar";
+import logo from "../images/charity-dog-svgrepo-com.svg"
 
 export default function Header  () {
 
@@ -6,7 +7,7 @@ export default function Header  () {
     <header className="d-flex align-items-center w-100 header-element">
 
       <div style={{display:"flex"}}>
-        <img src="src/images/charity-dog-svgrepo-com.svg" alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="logo" />
         <h3 className="title">Adoption center</h3>
       </div>
 

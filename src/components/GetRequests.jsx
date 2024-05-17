@@ -63,7 +63,7 @@ export default function GetRequests() {
             let sender = userList.filter( user => user.name == element.userName)[0]
             let dogRequested = dogsList.filter ( dog => dog.id == element.dogId)[0]
             return (
-              <div key={index} className={index%2 === 0? "item-request": "item-request item-request-dark"}  >
+              <div key={index} className={index%2 === 0? "item-request": "item-request item-request-dark "}  >
                 <p>{element.id}</p>
                 <p>{element.date}</p>
                 <p>{element.userName}</p>

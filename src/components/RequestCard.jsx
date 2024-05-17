@@ -15,8 +15,8 @@ return (
         </div>
         <img src={dog.image}/>
       </div>
-      <h3>User's message:</h3>
-      <div id="user-request-message"> {request.message}</div>
+      <h3 >User's message:</h3>
+      <div id="user-request-message request-details"> {request.message}</div>
 
     </div>
   </div>
