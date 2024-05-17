@@ -84,8 +84,8 @@ export default function User({ isLogged, activeUser }) {
 
 
         <div style={{textAlign:"center"}}>
-        <h1>Welcome, {activeUser}!</h1>
-        <h3>Find the perfect pet for you</h3>
+        <h1 className="main-content-light">Welcome, {activeUser}!</h1>
+        <h3 className="main-content-light">Find the perfect pet for you</h3>
         <button className="btn btn-dark user-start-search" onClick={handleStart}>Start my search!</button>
         </div>
 
@@ -95,14 +95,14 @@ export default function User({ isLogged, activeUser }) {
           (
             <div className="loading-effect">
              <div className="circle"></div>
-              <h2>Loading...</h2>
+              <h2 className="main-content-light">Loading...</h2>
             </div>
 
           ) : (
 
           <div className="dogs-list dogs-list-user container">
             <SearchBar activateSearch={activateSearch} />
-            <h3 className="showing-text">Showing: {arrayToShow.length} dogs </h3>
+            <h3 className="showing-text main-content-light">Showing: {arrayToShow.length} dogs </h3>
 
             {arrayToShow.map((characterObj, index) => {
               return (

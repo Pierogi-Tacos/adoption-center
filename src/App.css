@@ -669,6 +669,9 @@ height: 40px;
     margin: 20px;
     padding-right: 20px;
   }
+  .main-content-light{
+    color: #cec3b2;
+  }
   
   .logo{
     margin-top: 10px;
@@ -694,7 +697,7 @@ height: 40px;
   }
   
   .dog-photos img{
-    width: 260px;
+    width: 250px;
   }
   
 .admin-options-btn{
