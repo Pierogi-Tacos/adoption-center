@@ -102,6 +102,8 @@ export default function User({ isLogged, activeUser }) {
 
           <div className="dogs-list dogs-list-user container">
             <SearchBar activateSearch={activateSearch} />
+            <h3 className="showing-text">Showing: {arrayToShow.length} dogs </h3>
+
             {arrayToShow.map((characterObj, index) => {
               return (
                 <div className="col-md-4 cards-user">

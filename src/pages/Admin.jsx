@@ -32,8 +32,9 @@ export default function Admin({ adminLogged }) {
   const [displayAllDogs, setDisplayAllDogs] = useState(false)
   const [displayRequests, setDisplayRequests] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
+/*   useEffect(() => {
     axios
       .get("https://api-pets.adaptable.app/pets")
       .then((result) => {
@@ -43,7 +44,7 @@ export default function Admin({ adminLogged }) {
       .catch((error) => {
         console.log("error", error);
       });
-  }, []);
+  }, []); */
 
   const [indexToDelete, setIndexToDelete] = useState()
   const [idToDelete, setIdToDelete] = useState();
@@ -88,7 +89,18 @@ export default function Admin({ adminLogged }) {
     setDisplayNewForm(false)
     setDisplayRequests(false)
     setDisplayAllDogs(true)
+    setIsLoading(true)
+    axios.get("https://api-pets.adaptable.app/pets")
+      .then((result) => {
+        setPetsList(result.data);
+        setArrayToShow(result.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
   }
+
   function handleAddNew() {
     setDisplayAllDogs(false)
     setDisplayRequests(false)
@@ -124,7 +136,7 @@ export default function Admin({ adminLogged }) {
   // getLocation()
 
   return (
-    <div className="main-content-page" style={ displayAllDogs || displayNewForm ? {background:'none'}:{} } >
+    <div className="main-content-page" style={ displayNewForm ? {background:'none'}:{} } >
             
       {confirmDelete && 
           <div id="delete-confirmation">
@@ -138,7 +150,6 @@ export default function Admin({ adminLogged }) {
       <div className="wrapper">
         <div className="container container-admin">
           <h1 className="admin-hero-text text-center">Welcome, Admin!</h1>
-
 
           <div className="container options-admin p-2">
             <div className="row border-0 ">
@@ -160,38 +171,48 @@ export default function Admin({ adminLogged }) {
       )}
 
       {displayAllDogs &&
-      <div className="dogs-list container">
-        <SearchBar activateSearch={activateSearch}/>
-        <h3 className="showing-text">Showing: {arrayToShow.length} dogs </h3>
-        {arrayToShow.map((characterObj, index) => {
-          return (
-            <div key={characterObj.id || index} className="col-md-4 cards-admin">
-            <div key={index} className="dog-item">
-                <div className="dog-photos card p-2 m-2 mb-3 shadow">
-                  <img className="card-img-top rounded" src={characterObj.image} />
-              
-              <h4 className="card-header font-weight-bold">{characterObj.name}</h4>
-              <div className="card-body">
-              <p className="card-subtitle mb-2 ">{characterObj.breed}</p>
-              <span className="card-subtitle mb-2 text-muted"><span>{characterObj.age} years, </span> 
-              <span>{characterObj.gender}</span></span>
-              </div>
-              
-              <div className="admin-buttons btn-group mx-auto" role="group">
-                <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDetails(index, characterObj.id)}>Details</button>
-                
-                
-                <button type="button" className="btn btn-secondary border border-dark " onClick={() => handleEdit(index)}>Edit</button>
-                <button type="button" className="btn btn-secondary border border-dark " onClick={() => handleDelete(index,characterObj.id)}>
-                  Delete
-                </button>
-                </div>
-              </div>
-              </div>
+        (
+        isLoading?
+        (
+          <div className="loading-effect">
+            <div className="circle"></div>
+            <h2>Loading...</h2>
+         </div>
+        ) :
+        (
+            <div className="dogs-list container">
+              <SearchBar activateSearch={activateSearch}/>
+              <h3 className="showing-text">Showing: {arrayToShow.length} dogs </h3>
+              {arrayToShow.map((characterObj, index) => {
+                return (
+                  <div key={characterObj.id || index} className="col-md-4 cards-admin">
+                  <div key={index} className="dog-item">
+                      <div className="dog-photos card p-2 m-2 mb-3 shadow">
+                        <img className="card-img-top rounded" src={characterObj.image} />
+                    
+                    <h4 className="card-header font-weight-bold">{characterObj.name}</h4>
+                    <div className="card-body">
+                    <p className="card-subtitle mb-2 ">{characterObj.breed}</p>
+                    <span className="card-subtitle mb-2 text-muted"><span>{characterObj.age} years, </span> 
+                    <span>{characterObj.gender}</span></span>
+                    </div>
+                    
+                    <div className="admin-buttons btn-group mx-auto" role="group">
+                      <button type="button" className="btn btn-secondary border border-dark" onClick={() => handleDetails(index, characterObj.id)}>Details</button>
+                      
+                      
+                      <button type="button" className="btn btn-secondary border border-dark " onClick={() => handleEdit(index)}>Edit</button>
+                      <button type="button" className="btn btn-secondary border border-dark " onClick={() => handleDelete(index,characterObj.id)}>
+                        Delete
+                      </button>
+                      </div>
+                    </div>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+        ))
       }
 
       {displayRequests && 
