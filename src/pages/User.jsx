@@ -102,7 +102,7 @@ export default function User({ isLogged, activeUser }) {
 
           <div className="dogs-list dogs-list-user container">
             <SearchBar activateSearch={activateSearch} />
-            <h3 className="showing-text main-content-light">Showing: {arrayToShow.length} dogs </h3>
+            <h3 className="showing-text main-content-light" style={{color:"white"}}>Showing: {arrayToShow.length} dogs </h3>
 
             {arrayToShow.map((characterObj, index) => {
               return (
