@@ -105,7 +105,14 @@ export const userList = [
       "password": "admin",
       "ownerOfId": [],
       "location": "hamburg"
-      }
+      },
+      {
+        "id": 16,
+        "name": "alessandra",
+        "password": "alessandra",
+        "ownerOfId": [],
+        "location": "amsterdam"
+        }
 
 ]
 
