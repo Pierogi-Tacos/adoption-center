@@ -75,7 +75,7 @@ export default function SearchBar( {activateSearch}) {
 
           <div className="col-md-4">
           
-             <select className="form-select search-gender" name="gender" onChange={handleInputGender} >
+             <select className="form-select search-gender" name="gender" onChange={handleInputGender} /* asdf */ style={{width:"150px"}} >
                 <option className="search-gender-select" value="">Select gender </option>
                 <option value="male" >Male</option>
                 <option value="female"> Female</option>

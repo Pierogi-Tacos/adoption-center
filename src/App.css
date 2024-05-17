@@ -195,7 +195,7 @@ width: 50%;
 .item-request p {
   margin: 0 5px;
   flex: 1;
-  text-align: center; /* Para centrar el texto horizontalmente */
+  text-align: center;
 
 }
 .item-request button {
@@ -311,7 +311,7 @@ padding: 5px 20px;
   }
 
 .dogs-list{
-  width: 600px
+ /*  width: 600px asdf*/
 }
 .dogs-list-user{
   margin-top: 10px;
@@ -539,7 +539,7 @@ cursor: pointer;
 .submit-search{
   border-width: 1px;
   border-radius: 20px;
-  width: 15%;
+  width: 100px; /*asdf*/
   height: 40px;
   transition: 0.3s;
   background-color: black;
@@ -653,7 +653,6 @@ height: 40px;
 }
 
 @media screen and (max-width: 800px) {
-
   
   header h1 {
     display: none;
@@ -681,7 +680,8 @@ height: 40px;
     margin-right: 30px;
   }
   .search-bar{
-    max-width: 350px;
+   /*  max-width: 350px; asdf */
+
   }
   .search-gender-select{
     margin-bottom: 10px;
@@ -704,6 +704,14 @@ margin: 10px;
   width: 50px;
   height: 40px;
   font-size: 10px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+}
+footer p {
+  font-size: 12px;
 }
 
 }

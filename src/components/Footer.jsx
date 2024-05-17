@@ -14,7 +14,6 @@ export default function Footer () {
         <a href="https://instagram.com">
           <img src="src/images/instagram-svgrepo-com.svg" alt="Instagram" />
         </a>
-        {/* Agrega más imágenes con enlaces para otras redes sociales si lo deseas */}
       </div>
       <p>The Dog Adoption Center | © 2024 All Rights Reserved</p>
     </footer>
