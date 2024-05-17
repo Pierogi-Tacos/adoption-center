@@ -149,7 +149,7 @@ export default function Admin({ adminLogged }) {
 
       <div className="wrapper">
         <div className="container container-admin">
-          <h1 className="admin-hero-text text-center">Welcome, Admin!</h1>
+          <h1 className="admin-hero-text text-center main-content-light">Welcome, Admin!</h1>
 
           <div className="container options-admin p-2">
             <div className="row border-0 ">
@@ -176,13 +176,13 @@ export default function Admin({ adminLogged }) {
         (
           <div className="loading-effect">
             <div className="circle"></div>
-            <h2>Loading...</h2>
+            <h2 className="main-content-light">Loading...</h2>
          </div>
         ) :
         (
             <div className="dogs-list container">
               <SearchBar activateSearch={activateSearch}/>
-              <h3 className="showing-text">Showing: {arrayToShow.length} dogs </h3>
+              <h3 className="showing-text main-content-light">Showing: {arrayToShow.length} dogs </h3>
               {arrayToShow.map((characterObj, index) => {
                 return (
                   <div key={characterObj.id || index} className="col-md-4 cards-admin">
