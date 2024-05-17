@@ -178,7 +178,7 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
       />
       </div>
 
-      <div className="col-md-6 mb-3 px-4">
+      {/* <div className="col-md-6 mb-3 px-4">
       <label className="col-form-label" htmlFor="image">Image URL</label>
       <input
       className="form-control"
@@ -188,15 +188,15 @@ const AddPetForm = ( {setDisplayNewForm, setDisplayAllDogs}) => {
         onChange={handleChange}
         placeholder="Enter image URL"
       />
-      </div>
+      </div> */}
 
-      <div className="mb-3 px-4">
+      {/* <div className="mb-3 px-4">
     <label className="form-label" htmlFor="imageFile">Upload Image</label>
     <div className="custom-file">
     <input className="custom-file-input" type="file" accept="image/*" onChange={handleImageUpload} />
     <label className="custom-file-label" htmlFor="imageFile">Choose file</label>
       </div>
-      </div>
+      </div> */}
       <div className="col-12 pt-4 mb-3 px-4">
       <button className="btn btn-info" type="submit"> Add a new pet </button>
       <button className="btn btn-info" style={{marginLeft:"20px"}} onClick={() => setDisplayNewForm(false)}>Back</button>

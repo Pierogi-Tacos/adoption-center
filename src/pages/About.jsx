@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function About() {
   return (
     <div className="main-content-page">
@@ -19,7 +21,7 @@ export default function About() {
         </h4>
 
         <h4>
-          The site connects to an API hosted at https://api-pets.adaptable.app/
+          The site connects to an <Link to ="https://api-pets.adaptable.app/">API</Link>
           with the endpoints: /pets, /users and /requests.
         </h4>
           <div id="links-repos">
