@@ -274,22 +274,21 @@ padding: 5px 20px;
 
 #delete-confirmation {
   position: fixed;
-  height: 200px;
+  height: fit-content;
   border-radius: 20px;
   left: 50%;
   top:50%;
   transform: translate(-50%, -50%);
   background-color: rgb(203, 203, 203);
   z-index: 4;
-  padding: 20px 30px 50px 20px;
-  
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: center;
 }
 #delete-confirmation button{
   margin-top: 20px;
   margin-left: 10px;
-}
-.delete-conf-buttons{
-  padding-left: 170px;
 }
 
 .loading-effect {
@@ -332,7 +331,7 @@ padding: 5px 20px;
 }
 
 .dog-photos:hover {
-background-color: rgb(85, 2, 2);
+background-color: rgb(189, 189, 189);
 cursor: pointer;
 }
 

@@ -140,8 +140,9 @@ export default function Admin({ adminLogged }) {
       {confirmDelete && 
           <div id="delete-confirmation">
             <h2>Do you want to delete this element?</h2>
-            <div className="delete-conf-buttons"><button className="btn btn-secondary delete-conf-buttons" onClick={() => setConfirmDelete(false)}>Back</button>
-            <button className="btn btn-secondary delete-conf-buttons" onClick={deleteConfirmed}>Delete</button>
+            <div className="delete-conf-buttons">
+              <button className="btn btn-secondary delete-conf-buttons" onClick={() => setConfirmDelete(false)}>Back</button>
+              <button className="btn btn-secondary delete-conf-buttons" onClick={deleteConfirmed}>Delete</button>
           </div>
           </div>
       }
