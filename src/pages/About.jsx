@@ -21,12 +21,12 @@ export default function About() {
         </h4>
 
         <h4>
-          The site connects to an <Link to ="https://api-pets.adaptable.app/">API</Link>
+          The site connects to an <Link to ="https://api-pets.adaptable.app/"> API </Link>
           with the endpoints: /pets, /users and /requests.
         </h4>
           <div id="links-repos">
-          <a href="https://github.com/Pierogi-Tacos/adoption-center" target="_blank">App Repository</a>
-          <a href="https://github.com/Pierogi-Tacos/api-pets" target="_blank"> | Api Repository</a>
+            <a href="https://github.com/Pierogi-Tacos/adoption-center" target="_blank">App Repository</a>
+            <a href="https://github.com/Pierogi-Tacos/api-pets" target="_blank"> | Api Repository</a>
           </div>
       
       </div>

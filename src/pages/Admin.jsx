@@ -59,7 +59,6 @@ export default function Admin({ adminLogged }) {
     const newList = [...petsList];
     newList.splice(indexToDelete, 1);
     setPetsList(newList);
-
     axios.delete("https://api-pets.adaptable.app/pets/" + idToDelete)
       .then((response) => {
           console.log(response)

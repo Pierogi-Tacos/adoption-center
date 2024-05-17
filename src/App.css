@@ -440,11 +440,17 @@ cursor: pointer;
   background-color: #333;
   color: #fff;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+footer p {
   text-align: center;
 }
 
 .social-icons {
-  margin-bottom: 20px;
+  width: fit-content;
+  margin: 10px auto;
 }
 
 .social-icons a {
@@ -635,7 +641,9 @@ height: 40px;
 #links-repos {
   width: fit-content;
   font-size: 25px;
+  margin: 0 auto;
 }
+
 #about-info h4 {
   text-align: center;
   margin: 20px 10px;
@@ -709,10 +717,6 @@ margin: 10px;
   font-size: 10px;
 }
 
-footer {
-  display: flex;
-  flex-direction: column;
-}
 footer p {
   font-size: 12px;
 }

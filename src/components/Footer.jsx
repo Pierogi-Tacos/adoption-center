@@ -3,7 +3,7 @@
 export default function Footer () {
 
   return (
-    <footer className="d-flex align-items-center w-100">
+    <footer>
       <div className="social-icons">
         <a href="https://facebook.com">
           <img src="src/images/facebook-svgrepo-com (1).svg" alt="Facebook" />
